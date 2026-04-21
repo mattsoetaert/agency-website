@@ -19,6 +19,7 @@ export default function Navbar() {
           <a href="#how-it-works" className="hover:text-white transition-colors">How it Works</a>
           <a href="#pricing" className="hover:text-white transition-colors">Pricing</a>
           <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
+          <Link href="/calculator" className="hover:text-white transition-colors text-indigo-400 hover:text-indigo-300">Calculator</Link>
         </div>
 
         <div className="hidden md:flex items-center gap-3">
@@ -52,6 +53,7 @@ export default function Navbar() {
           <a href="#how-it-works" className="text-slate-400 hover:text-white" onClick={() => setOpen(false)}>How it Works</a>
           <a href="#pricing" className="text-slate-400 hover:text-white" onClick={() => setOpen(false)}>Pricing</a>
           <a href="#faq" className="text-slate-400 hover:text-white" onClick={() => setOpen(false)}>FAQ</a>
+          <Link href="/calculator" className="text-indigo-400 hover:text-indigo-300" onClick={() => setOpen(false)}>Calculator</Link>
           <a
             href="#contact"
             className="text-center px-4 py-2 rounded-lg bg-indigo-500 hover:bg-indigo-400 text-white font-medium"
