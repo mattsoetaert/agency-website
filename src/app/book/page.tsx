@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BookingContent from "@/components/BookingContent";
@@ -14,7 +15,9 @@ export default function BookingPage() {
     <>
       <Navbar />
       <main>
-        <BookingContent />
+        <Suspense fallback={null}>
+          <BookingContent />
+        </Suspense>
       </main>
       <Footer />
     </>
