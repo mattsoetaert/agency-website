@@ -1,65 +1,55 @@
 const features = [
   {
-    icon: "📞",
-    title: "Answers Every Call",
+    title: "10+ Pages",
     description:
-      "Your AI agent picks up every call instantly — no hold music, no voicemail, no lost leads. Customers get help immediately, day or night.",
+      "Enough room to properly present your services, service areas, trust signals, and conversion paths without cramming everything onto a single page.",
   },
   {
-    icon: "📅",
-    title: "Books Appointments",
+    title: "High-Visibility SEO",
     description:
-      "Integrates directly with your calendar to schedule, reschedule, and confirm appointments without any manual work on your end.",
+      "Make sure your business shows up in more searches with a site structure and page coverage built to support stronger local visibility.",
   },
   {
-    icon: "🎯",
-    title: "Qualifies Leads",
+    title: "Conversion-Focused Pages",
     description:
-      "Asks the right questions, captures contact info, and routes high-value callers to you immediately while handling routine inquiries automatically.",
+      "Every section has a job: build trust, answer objections, and move the visitor toward calling, booking, or submitting a form.",
   },
   {
-    icon: "🗣️",
-    title: "Sounds Human",
+    title: "Mobile-First Design",
     description:
-      "Powered by the latest voice AI — natural pauses, realistic tone, and conversational flow that callers trust and respond well to.",
+      "Most traffic is on phones. We build for small screens first so the site feels sharp, readable, and easy to act on anywhere.",
   },
   {
-    icon: "🔗",
-    title: "Connects Your Tools",
+    title: "Fast Performance",
     description:
-      "Syncs with your CRM, scheduling software, and notification tools so nothing falls through the cracks.",
+      "A slow site bleeds trust. We keep things lean so pages load quickly and visitors do not bounce before they see your offer.",
   },
   {
-    icon: "📊",
-    title: "Reports & Insights",
+    title: "Automation",
     description:
-      "See exactly how many calls were handled, what customers asked about, and where opportunities are slipping through.",
+      "Once the website foundation is in place, we can layer in forms, lead routing, follow-up systems, and other automation that saves time and captures more opportunities.",
   },
 ];
 
 export default function Features() {
   return (
-    <section id="features" className="bg-slate-950 py-24">
+    <section id="features" className="bg-white py-24 border-t border-black/8">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-16">
-          <p className="text-indigo-400 text-sm font-semibold uppercase tracking-widest mb-3">Features</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Everything your front desk does — automated
+        <div className="mb-16">
+          <p className="text-neutral-400 text-sm font-medium uppercase tracking-widest mb-4">Features</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">
+            Everything a service business website should do.
           </h2>
-          <p className="text-slate-400 max-w-xl mx-auto">
-            Your AI voice agent handles the whole call lifecycle, so you and your team can focus on the actual work.
+          <p className="text-neutral-500 max-w-3xl text-lg leading-relaxed">
+            We understand the needs of local service businesses. People buy from businesses they trust, and a polished website helps create that trust from the first click. It does more than improve your odds of being found online. It shapes how prospects perceive your business and increases the likelihood that they choose you over the competition.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((f) => (
-            <div
-              key={f.title}
-              className="group rounded-2xl border border-white/5 bg-white/2 hover:bg-white/5 p-6 transition-all hover:-translate-y-1"
-            >
-              <div className="text-3xl mb-4">{f.icon}</div>
-              <h3 className="text-white font-semibold text-lg mb-2">{f.title}</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">{f.description}</p>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-black/8">
+          {features.map((feature) => (
+            <div key={feature.title} className="bg-white p-8">
+              <h3 className="text-black font-semibold text-base mb-3">{feature.title}</h3>
+              <p className="text-neutral-500 text-sm leading-relaxed">{feature.description}</p>
             </div>
           ))}
         </div>

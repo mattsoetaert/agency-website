@@ -7,37 +7,35 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 inset-x-0 z-50 bg-slate-950/80 backdrop-blur border-b border-white/5">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
+    <nav className="fixed top-0 inset-x-0 z-50 bg-[#f5f4f0]/90 backdrop-blur border-b border-black/8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
         <Link href="/" className="flex items-center gap-2">
-          <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500 text-white font-bold text-sm">V</span>
-          <span className="font-semibold text-white tracking-tight">VoiceFlow AI</span>
+          <span className="inline-flex items-center justify-center w-7 h-7 bg-black text-white font-bold text-xs">V</span>
+          <span className="font-semibold text-black tracking-tight text-sm">Vantage Web</span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-8 text-sm text-slate-400">
-          <a href="#features" className="hover:text-white transition-colors">Features</a>
-          <a href="#how-it-works" className="hover:text-white transition-colors">How it Works</a>
-          <a href="#pricing" className="hover:text-white transition-colors">Pricing</a>
-          <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
-          <Link href="/calculator" className="hover:text-white transition-colors text-indigo-400 hover:text-indigo-300">Calculator</Link>
+        <div className="hidden md:flex items-center gap-8 text-sm text-neutral-500">
+          <a href="#features" className="hover:text-black transition-colors">Features</a>
+          <a href="#how-it-works" className="hover:text-black transition-colors">How it Works</a>
+          <a href="#faq" className="hover:text-black transition-colors">FAQ</a>
         </div>
 
         <div className="hidden md:flex items-center gap-3">
-          <a href="#contact" className="text-sm text-slate-400 hover:text-white transition-colors">Log in</a>
+          <a href="#contact" className="text-sm text-neutral-500 hover:text-black transition-colors">Contact</a>
           <a
             href="#contact"
-            className="text-sm px-4 py-2 rounded-lg bg-indigo-500 hover:bg-indigo-400 text-white font-medium transition-colors"
+            className="text-sm px-4 py-2 bg-black hover:bg-neutral-800 text-white font-medium transition-colors"
           >
-            Book a Demo
+            Book a Call
           </a>
         </div>
 
         <button
-          className="md:hidden text-slate-400 hover:text-white"
+          className="md:hidden text-neutral-500 hover:text-black"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {open ? (
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             ) : (
@@ -48,18 +46,16 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-white/5 bg-slate-950 px-4 py-4 flex flex-col gap-4 text-sm">
-          <a href="#features" className="text-slate-400 hover:text-white" onClick={() => setOpen(false)}>Features</a>
-          <a href="#how-it-works" className="text-slate-400 hover:text-white" onClick={() => setOpen(false)}>How it Works</a>
-          <a href="#pricing" className="text-slate-400 hover:text-white" onClick={() => setOpen(false)}>Pricing</a>
-          <a href="#faq" className="text-slate-400 hover:text-white" onClick={() => setOpen(false)}>FAQ</a>
-          <Link href="/calculator" className="text-indigo-400 hover:text-indigo-300" onClick={() => setOpen(false)}>Calculator</Link>
+        <div className="md:hidden border-t border-black/8 bg-[#f5f4f0] px-4 py-4 flex flex-col gap-4 text-sm">
+          <a href="#features" className="text-neutral-500 hover:text-black" onClick={() => setOpen(false)}>Features</a>
+          <a href="#how-it-works" className="text-neutral-500 hover:text-black" onClick={() => setOpen(false)}>How it Works</a>
+          <a href="#faq" className="text-neutral-500 hover:text-black" onClick={() => setOpen(false)}>FAQ</a>
           <a
             href="#contact"
-            className="text-center px-4 py-2 rounded-lg bg-indigo-500 hover:bg-indigo-400 text-white font-medium"
+            className="text-center px-4 py-2 bg-black hover:bg-neutral-800 text-white font-medium"
             onClick={() => setOpen(false)}
           >
-            Book a Demo
+            Book a Call
           </a>
         </div>
       )}

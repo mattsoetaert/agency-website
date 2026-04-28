@@ -4,28 +4,28 @@ import { useState } from "react";
 
 const faqs = [
   {
-    q: "Will callers know they're talking to an AI?",
-    a: "Most callers don't realize it, but we believe in transparency. We design agents that are upfront if asked directly. Our agents sound natural and conversational — not robotic.",
+    q: "Who is this for?",
+    a: "This is best for service businesses that need a stronger online presence and want a website built to generate real inquiries, not just sit online as a brochure.",
   },
   {
-    q: "What happens if the agent can't answer a question?",
-    a: "The agent can transfer calls to you or a team member in real-time, take a detailed message, or schedule a callback — whatever workflow makes the most sense for your business.",
+    q: "Do you write the copy too?",
+    a: "Yes. We help shape the messaging, headlines, section flow, and calls to action so the site is not dependent on you handing over finished copy.",
   },
   {
-    q: "How long does setup take?",
-    a: "Most clients are live within 5–10 business days after the discovery call. We handle everything technical — you just need to review and approve the agent before launch.",
+    q: "How long does a website take?",
+    a: "Timing depends on scope, but most sites can move from strategy to launch in a few weeks once we have the core business information and approvals.",
   },
   {
-    q: "Does it work with my existing phone number?",
-    a: "Yes. We can either forward your existing business number to the agent, or set up a new dedicated number — whichever you prefer.",
+    q: "Can you work with my existing domain and brand?",
+    a: "Yes. We can build on your current domain, refresh the brand presentation, and keep what is working while replacing what is dated or unclear.",
   },
   {
-    q: "What scheduling and CRM tools do you integrate with?",
-    a: "We integrate with Google Calendar, Calendly, Acuity, HubSpot, Salesforce, Go High Level, Zoho, and many others. If you use something not on this list, ask us — we build custom integrations.",
+    q: "Can we add AI or automation later?",
+    a: "Yes. That is the plan. We start with the website as the foundation, then layer in things like lead routing, follow-up automation, or AI call handling when the business case is clear.",
   },
   {
-    q: "Can I change the agent's script after launch?",
-    a: "Absolutely. We offer ongoing support and can update your agent's responses, add new services, or adjust the conversation flow at any time.",
+    q: "Do you offer ongoing support after launch?",
+    a: "Yes. We can continue improving the site, add new pages, refine conversion points, and support future growth initiatives after the initial launch.",
   },
 ];
 
@@ -33,26 +33,23 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="bg-slate-950 py-24">
+    <section id="faq" className="bg-white py-24 border-t border-black/8">
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-16">
-          <p className="text-indigo-400 text-sm font-semibold uppercase tracking-widest mb-3">FAQ</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Common questions</h2>
+        <div className="mb-16">
+          <p className="text-neutral-400 text-sm font-medium uppercase tracking-widest mb-4">FAQ</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-black">Common questions.</h2>
         </div>
 
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col divide-y divide-black/8">
           {faqs.map((faq, i) => (
-            <div
-              key={i}
-              className="rounded-xl border border-white/5 bg-white/2 overflow-hidden"
-            >
+            <div key={i}>
               <button
-                className="w-full text-left px-5 py-4 flex items-center justify-between gap-4"
+                className="w-full text-left py-5 flex items-center justify-between gap-4"
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
               >
-                <span className="text-white font-medium text-sm">{faq.q}</span>
+                <span className="text-black font-medium text-sm">{faq.q}</span>
                 <svg
-                  className={`w-4 h-4 text-slate-400 shrink-0 transition-transform ${openIndex === i ? "rotate-180" : ""}`}
+                  className={`w-4 h-4 text-neutral-400 shrink-0 transition-transform ${openIndex === i ? "rotate-180" : ""}`}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -60,11 +57,7 @@ export default function FAQ() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              {openIndex === i && (
-                <div className="px-5 pb-4 text-slate-400 text-sm leading-relaxed border-t border-white/5 pt-3">
-                  {faq.a}
-                </div>
-              )}
+              {openIndex === i && <div className="pb-5 text-neutral-500 text-sm leading-relaxed">{faq.a}</div>}
             </div>
           ))}
         </div>

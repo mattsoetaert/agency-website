@@ -1,98 +1,106 @@
 const plans = [
   {
-    name: "Starter",
+    name: "AI Voice Agent",
+    badge: null,
     price: "$497",
     per: "/mo",
-    description: "Perfect for solo operators and small teams just getting started.",
+    tagline: "Never drop what you're doing to answer a call again.",
+    description: "A custom AI agent that answers every call, qualifies leads, and books appointments — 24/7, without you lifting a finger.",
     features: [
-      "1 AI voice agent",
-      "Up to 500 calls/month",
-      "Appointment booking",
-      "Email + SMS lead alerts",
-      "Basic call reports",
-      "Setup included",
+      "AI voice agent (custom to your business)",
+      "24/7 inbound call handling",
+      "Lead qualification & appointment booking",
+      "Calendar sync",
+      "SMS & email lead alerts",
+      "Done-for-you setup",
     ],
     cta: "Get Started",
     highlight: false,
   },
   {
-    name: "Growth",
-    price: "$997",
+    name: "Agent + Website",
+    badge: "Most Popular",
+    price: "$797",
     per: "/mo",
-    description: "For established businesses that want to scale without adding headcount.",
+    tagline: "Capture every lead — whether they call or search online.",
+    description: "Your AI agent handles every call while your website pulls in leads around the clock. Two channels, one seamless system.",
     features: [
-      "2 AI voice agents",
-      "Up to 2,000 calls/month",
-      "CRM & calendar integrations",
-      "Lead qualification flows",
-      "Advanced analytics dashboard",
+      "Everything in AI Voice Agent",
+      "Custom-built business website",
+      "SEO-optimized pages",
+      "Lead capture forms & booking widgets",
+      "Site and agent work together seamlessly",
       "Priority support",
-      "Monthly strategy call",
+      "Monthly performance review",
     ],
     cta: "Start Free Trial",
     highlight: true,
   },
   {
-    name: "Enterprise",
-    price: "Custom",
-    per: "",
-    description: "Multi-location businesses and franchises with high call volumes.",
+    name: "Total Growth System",
+    badge: null,
+    price: "$2,000+",
+    per: "/mo",
+    tagline: "Your entire growth engine — built and managed for you.",
+    description: "For businesses ready to scale. We handle everything — calls, web presence, ads, and a custom CRM — so you can focus on doing the work.",
     features: [
-      "Unlimited agents & locations",
-      "Unlimited call volume",
-      "Custom integrations & APIs",
+      "Everything in Agent + Website",
+      "Custom CRM (track every lead & client)",
+      "Automated follow-up sequences",
+      "Google Ads — professionally managed",
+      "Facebook & Instagram Ads — professionally managed",
       "Dedicated account manager",
-      "White-glove onboarding",
-      "SLA guarantee",
+      "Monthly strategy & performance review",
     ],
-    cta: "Contact Us",
+    cta: "Apply Now",
     highlight: false,
   },
 ];
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="bg-slate-900 py-24">
+    <section id="pricing" className="bg-white py-24 border-t border-black/8">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-16">
-          <p className="text-indigo-400 text-sm font-semibold uppercase tracking-widest mb-3">Pricing</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Simple, transparent pricing
+        <div className="mb-16">
+          <p className="text-neutral-400 text-sm font-medium uppercase tracking-widest mb-4">Pricing</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">
+            Most small businesses are running on a cell phone. We fix that.
           </h2>
-          <p className="text-slate-400 max-w-xl mx-auto">
-            No long-term contracts. Cancel anytime. ROI typically pays for itself in the first month.
+          <p className="text-neutral-500 max-w-xl text-lg">
+            No long-term contracts. Cancel anytime. Most clients see ROI within the first 30 days.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 items-start">
+        <div className="grid md:grid-cols-3 gap-px bg-black/8">
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`relative rounded-2xl p-6 flex flex-col gap-6 ${
-                plan.highlight
-                  ? "border-2 border-indigo-500 bg-indigo-500/5 shadow-xl shadow-indigo-500/10"
-                  : "border border-white/5 bg-white/2"
+              className={`relative flex flex-col gap-8 p-8 ${
+                plan.highlight ? "bg-black text-white" : "bg-white"
               }`}
             >
-              {plan.highlight && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-indigo-500 text-white text-xs font-semibold">
-                  Most Popular
+              {plan.badge && (
+                <div className="absolute top-8 right-8 px-2 py-0.5 text-xs font-semibold bg-white text-black">
+                  {plan.badge}
                 </div>
               )}
 
               <div>
-                <p className="text-slate-400 text-sm font-medium mb-1">{plan.name}</p>
-                <div className="flex items-end gap-1">
-                  <span className="text-4xl font-bold text-white">{plan.price}</span>
-                  <span className="text-slate-400 text-sm mb-1">{plan.per}</span>
+                <p className={`text-xs font-semibold uppercase tracking-widest mb-4 ${plan.highlight ? "text-neutral-400" : "text-neutral-400"}`}>
+                  {plan.name}
+                </p>
+                <div className="flex items-end gap-1 mb-3">
+                  <span className={`text-4xl font-bold ${plan.highlight ? "text-white" : "text-black"}`}>{plan.price}</span>
+                  <span className={`text-sm mb-1 ${plan.highlight ? "text-neutral-400" : "text-neutral-400"}`}>{plan.per}</span>
                 </div>
-                <p className="text-slate-500 text-sm mt-2">{plan.description}</p>
+                <p className={`text-sm font-medium mb-2 ${plan.highlight ? "text-white" : "text-black"}`}>{plan.tagline}</p>
+                <p className={`text-sm leading-relaxed ${plan.highlight ? "text-neutral-400" : "text-neutral-500"}`}>{plan.description}</p>
               </div>
 
-              <ul className="flex flex-col gap-2.5 flex-1">
+              <ul className="flex flex-col gap-3 flex-1">
                 {plan.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2.5 text-sm text-slate-300">
-                    <svg className="w-4 h-4 text-indigo-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li key={f} className={`flex items-start gap-3 text-sm ${plan.highlight ? "text-neutral-300" : "text-neutral-600"}`}>
+                    <svg className={`w-4 h-4 mt-0.5 shrink-0 ${plan.highlight ? "text-white" : "text-black"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                     </svg>
                     {f}
@@ -102,10 +110,10 @@ export default function Pricing() {
 
               <a
                 href="#contact"
-                className={`block text-center py-3 rounded-xl font-semibold text-sm transition-all ${
+                className={`block text-center py-3 text-sm font-semibold transition-colors ${
                   plan.highlight
-                    ? "bg-indigo-500 hover:bg-indigo-400 text-white shadow-lg shadow-indigo-500/25"
-                    : "border border-white/10 bg-white/5 hover:bg-white/10 text-white"
+                    ? "bg-white text-black hover:bg-neutral-100"
+                    : "border border-black text-black hover:bg-black hover:text-white"
                 }`}
               >
                 {plan.cta}
@@ -113,6 +121,10 @@ export default function Pricing() {
             </div>
           ))}
         </div>
+
+        <p className="text-neutral-400 text-xs mt-8">
+          All plans include setup. Annual plans available — ask us about discounts.
+        </p>
       </div>
     </section>
   );

@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "VoiceFlow AI — AI Voice Agents for Service Businesses",
+  title: "Vantage Web — Conversion-Focused Websites for Service Businesses",
   description:
-    "Custom AI voice agents that answer calls, book appointments, and qualify leads for your service business — 24/7. Never miss a customer call again.",
+    "We design and build conversion-focused websites for service businesses, with automation and AI add-ons available later as the business grows.",
 };
 
 export default function RootLayout({

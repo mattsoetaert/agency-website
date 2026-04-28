@@ -24,33 +24,33 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="bg-slate-950 py-24">
+    <section className="bg-[#f5f4f0] py-24 border-t border-black/8">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-16">
-          <p className="text-indigo-400 text-sm font-semibold uppercase tracking-widest mb-3">Results</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Real businesses, real revenue
+        <div className="mb-16">
+          <p className="text-neutral-400 text-sm font-medium uppercase tracking-widest mb-4">Results</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">
+            Real businesses, real revenue.
           </h2>
-          <p className="text-slate-400 max-w-xl mx-auto">
+          <p className="text-neutral-500 max-w-xl text-lg">
             Hear from owners who no longer stress about missed calls.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-px bg-black/8">
           {testimonials.map((t) => (
             <div
               key={t.name}
-              className="rounded-2xl border border-white/5 bg-white/2 p-6 flex flex-col gap-4"
+              className="bg-[#f5f4f0] p-8 flex flex-col gap-6"
             >
-              <div className="flex gap-1 text-indigo-400 text-lg">{"★★★★★"}</div>
-              <p className="text-slate-300 text-sm leading-relaxed flex-1">"{t.quote}"</p>
-              <div className="flex items-center gap-3 pt-2 border-t border-white/5">
-                <div className="w-9 h-9 rounded-full bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-indigo-300 text-xs font-bold">
+              <div className="flex gap-0.5 text-black text-sm">{"★★★★★"}</div>
+              <p className="text-neutral-600 text-sm leading-relaxed flex-1">&ldquo;{t.quote}&rdquo;</p>
+              <div className="flex items-center gap-3 pt-4 border-t border-black/8">
+                <div className="w-8 h-8 bg-black flex items-center justify-center text-white text-xs font-bold">
                   {t.initials}
                 </div>
                 <div>
-                  <p className="text-white text-sm font-medium">{t.name}</p>
-                  <p className="text-slate-500 text-xs">{t.role}</p>
+                  <p className="text-black text-sm font-medium">{t.name}</p>
+                  <p className="text-neutral-400 text-xs">{t.role}</p>
                 </div>
               </div>
             </div>
