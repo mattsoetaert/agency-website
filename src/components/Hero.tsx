@@ -69,16 +69,6 @@ export default function Hero() {
               </label>
 
               <label className="block">
-                <span className="block text-xs font-medium text-neutral-500 mb-2">Phone</span>
-                <input
-                  name="phone"
-                  type="tel"
-                  placeholder="(555) 555-5555"
-                  className="w-full px-4 py-3 bg-[#f5f4f0] border border-black/10 text-black placeholder-neutral-400 text-sm focus:outline-none focus:ring-1 focus:ring-black"
-                />
-              </label>
-
-              <label className="block">
                 <span className="block text-xs font-medium text-neutral-500 mb-2">What do you need?</span>
                 <textarea
                   name="details"
