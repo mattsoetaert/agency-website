@@ -11,6 +11,14 @@ export default function CTA() {
             Book a strategy call and we will map out what your site needs to say, what it needs to do, and where automation can come later.
           </p>
 
+          <div className="mb-8 border border-black/10 bg-white p-6">
+            <p className="text-neutral-400 text-xs font-semibold uppercase tracking-widest mb-3">Price</p>
+            <p className="text-4xl sm:text-5xl font-bold text-black mb-3">$297/month</p>
+            <p className="text-neutral-500 text-base leading-relaxed">
+              No contracts, no hassle, no games. You pay, we deliver.
+            </p>
+          </div>
+
           <a
             href="#top"
             className="inline-flex px-6 py-3 bg-black hover:bg-neutral-800 text-white font-semibold text-sm transition-colors whitespace-nowrap"

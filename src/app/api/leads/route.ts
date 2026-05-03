@@ -151,6 +151,7 @@ async function notifyLeadDestinations(lead: SavedLead) {
 
 export async function POST(request: Request) {
   const formData = await request.formData();
+  const growthInterest = readField(formData, "growthInterest").toLowerCase();
 
   const lead: Lead = {
     name: readField(formData, "name"),
@@ -163,6 +164,10 @@ export async function POST(request: Request) {
 
   if (!lead.name || !lead.email) {
     return NextResponse.json({ error: "Name and email are required." }, { status: 400 });
+  }
+
+  if (growthInterest !== "yes") {
+    return NextResponse.json({ error: "You must be interested in growing your business to continue." }, { status: 400 });
   }
 
   if (!emailPattern.test(lead.email)) {

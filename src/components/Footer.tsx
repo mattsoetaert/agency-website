@@ -16,7 +16,7 @@ export default function Footer() {
           <div>
             <p className="text-black text-xs font-semibold uppercase tracking-widest mb-4">Product</p>
             <ul className="flex flex-col gap-2.5 text-sm text-neutral-500">
-              <li><a href="#features" className="hover:text-black transition-colors">Features</a></li>
+              <li><a href="#features" className="hover:text-black transition-colors">What we do</a></li>
               <li><a href="#how-it-works" className="hover:text-black transition-colors">How it Works</a></li>
               <li><a href="#faq" className="hover:text-black transition-colors">FAQ</a></li>
               <li><a href="#contact" className="hover:text-black transition-colors">Contact</a></li>

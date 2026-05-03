@@ -1,27 +1,21 @@
 const steps = [
   {
     step: "01",
-    title: "Discovery Call",
+    title: "Demo Call",
     description:
-      "We learn your service, market, offer, and what should happen when a qualified visitor lands on your site.",
+      "We get you on the phone, answer your questions, and make sure you are a good fit before anything starts.",
   },
   {
     step: "02",
-    title: "Strategy & Wireframe",
+    title: "We Build Your System",
     description:
-      "We map the structure, headlines, sections, and calls to action before we move into design and build.",
+      "We build out your website, review funnel, missed-call follow-up, and software setup in 5-7 days.",
   },
   {
     step: "03",
-    title: "Design & Build",
+    title: "Launch Call",
     description:
-      "We turn the strategy into a polished website that feels modern, loads fast, and works cleanly across devices.",
-  },
-  {
-    step: "04",
-    title: "Launch & Improve",
-    description:
-      "Once live, we refine based on what users click, where leads come from, and what additional systems are worth layering in.",
+      "We introduce you to the tools you need, show you how everything works, and get the system live.",
   },
 ];
 
@@ -31,13 +25,13 @@ export default function HowItWorks() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="mb-16">
           <p className="text-neutral-400 text-sm font-medium uppercase tracking-widest mb-4">Process</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">A better website, without guesswork.</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">Simple process, fast launch.</h2>
           <p className="text-neutral-500 max-w-xl text-lg">
-            We handle the messaging, structure, design, and build so you are not piecing it together yourself.
+            You get the answers first, then we build the system, then we walk you through everything on launch.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid sm:grid-cols-3 gap-12">
           {steps.map((step) => (
             <div key={step.step} className="flex flex-col">
               <span className="text-xs font-semibold text-neutral-400 tracking-widest mb-4">{step.step}</span>

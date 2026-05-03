@@ -4,6 +4,10 @@ import { useState } from "react";
 
 const faqs = [
   {
+    q: "Why do I need a website?",
+    a: "Your website is your most powerful ad. About 97%-98% of consumers search online to find local businesses, a figure that has risen from 90% in 2019. If you are not on Google and ranking near the top, you are missing out on jobs and letting them go to your competitors.",
+  },
+  {
     q: "Who is this for?",
     a: "This is best for service businesses that need a stronger online presence and want a website built to generate real inquiries, not just sit online as a brochure.",
   },
@@ -17,7 +21,7 @@ const faqs = [
   },
   {
     q: "Can you work with my existing domain and brand?",
-    a: "Yes. We can build on your current domain, refresh the brand presentation, and keep what is working while replacing what is dated or unclear.",
+    a: "Absolutely. We can work around any existing domains or websites that you currently have.",
   },
   {
     q: "Can we add AI or automation later?",
