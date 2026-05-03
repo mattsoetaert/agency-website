@@ -1,5 +1,22 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Staff-Assisted Subscription Checkout
+
+This app includes a staff-only subscription flow at `/sell`.
+
+Required setup:
+
+- Create a recurring monthly Stripe Price for the website plan.
+- Set the Stripe, Supabase, app URL, and `STAFF_CHECKOUT_PASSWORD` values from `.env.example`.
+- Run the SQL in `supabase/billing.sql` in your Supabase project.
+- Run the SQL in `supabase/onboarding.sql` if you want to collect client website onboarding forms at `/onboarding`.
+- Add a Stripe webhook endpoint for `https://your-domain.com/api/stripe/webhook`.
+- Subscribe the webhook to `checkout.session.completed`, `invoice.payment_succeeded`, `customer.subscription.updated`, and `customer.subscription.deleted`.
+
+Use `/sell` during a sales call to enter the client details and continue to Stripe Checkout. Card details should only be entered on the Stripe-hosted Checkout page.
+
+After a client signs up, send them `/onboarding` so they can submit the website kickoff details.
+
 ## Getting Started
 
 First, run the development server:

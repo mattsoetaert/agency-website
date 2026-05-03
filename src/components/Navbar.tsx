@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import BrandLogo from "@/components/BrandLogo";
 import { highLevelLoginUrl } from "@/lib/highlevel";
 
 export default function Navbar() {
@@ -10,10 +10,7 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 inset-x-0 z-50 bg-[#f5f4f0]/90 backdrop-blur border-b border-black/8">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="inline-flex items-center justify-center w-7 h-7 bg-black text-white font-bold text-xs">V</span>
-          <span className="font-semibold text-black tracking-tight text-sm">Vantage Web</span>
-        </Link>
+        <BrandLogo href="/" imageClassName="h-10 w-auto max-w-[180px]" priority />
 
         <div className="hidden md:flex items-center gap-8 text-sm text-neutral-500">
           <a href="#features" className="hover:text-black transition-colors">Features</a>

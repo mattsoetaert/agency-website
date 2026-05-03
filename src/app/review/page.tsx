@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import Link from "next/link";
+import BrandLogo from "@/components/BrandLogo";
 
 const GOOGLE_REVIEW_URL = "https://g.page/r/CWK-bDWq-B90EAE/review";
 const WEBHOOK_URL = ""; // TODO: paste Make.com webhook URL
@@ -86,12 +86,7 @@ export default function ReviewPage() {
     <main className="min-h-screen bg-[#f5f4f0]">
       <header className="border-b border-black/10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center">
-          <Link href="/" className="flex items-center gap-2" aria-label="Vantage Web">
-            <span className="inline-flex items-center justify-center w-7 h-7 bg-black text-white font-bold text-xs">
-              V
-            </span>
-            <span className="font-semibold text-black tracking-tight text-sm">Vantage Web</span>
-          </Link>
+          <BrandLogo href="/" imageClassName="h-10 w-auto max-w-[180px]" />
         </div>
       </header>
 

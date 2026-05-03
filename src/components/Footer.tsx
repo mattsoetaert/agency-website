@@ -1,3 +1,4 @@
+import BrandLogo from "@/components/BrandLogo";
 import { highLevelLoginUrl } from "@/lib/highlevel";
 
 export default function Footer() {
@@ -6,10 +7,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div className="col-span-1 lg:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="inline-flex items-center justify-center w-7 h-7 bg-black text-white font-bold text-xs">V</span>
-              <span className="font-semibold text-black tracking-tight text-sm">Vantage Web</span>
-            </div>
+            <BrandLogo href="/" className="mb-4" imageClassName="h-14 w-auto max-w-[220px]" />
             <p className="text-neutral-500 text-sm leading-relaxed max-w-xs">
               Conversion-focused websites for service businesses, with room to add automation and AI once the foundation is working.
             </p>
@@ -47,7 +45,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 border-t border-black/8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-400">
-          <p>© {new Date().getFullYear()} Vantage Web. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Cornerstone Marketing. All rights reserved.</p>
           <p>Built for service businesses that want a website that actually sells.</p>
         </div>
       </div>
