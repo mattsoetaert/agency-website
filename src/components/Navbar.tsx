@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { highLevelLoginUrl } from "@/lib/highlevel";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -21,7 +22,14 @@ export default function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-3">
-          <a href="#contact" className="text-sm text-neutral-500 hover:text-black transition-colors">Contact</a>
+          <a
+            href={highLevelLoginUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="text-sm text-neutral-500 hover:text-black transition-colors"
+          >
+            Log in
+          </a>
           <a
             href="#contact"
             className="text-sm px-4 py-2 bg-black hover:bg-neutral-800 text-white font-medium transition-colors"
@@ -50,6 +58,15 @@ export default function Navbar() {
           <a href="#features" className="text-neutral-500 hover:text-black" onClick={() => setOpen(false)}>Features</a>
           <a href="#how-it-works" className="text-neutral-500 hover:text-black" onClick={() => setOpen(false)}>How it Works</a>
           <a href="#faq" className="text-neutral-500 hover:text-black" onClick={() => setOpen(false)}>FAQ</a>
+          <a
+            href={highLevelLoginUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="text-center px-4 py-2 border border-black/15 text-black font-medium hover:bg-white"
+            onClick={() => setOpen(false)}
+          >
+            Client Login
+          </a>
           <a
             href="#contact"
             className="text-center px-4 py-2 bg-black hover:bg-neutral-800 text-white font-medium"

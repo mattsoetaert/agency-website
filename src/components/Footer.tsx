@@ -1,3 +1,5 @@
+import { highLevelLoginUrl } from "@/lib/highlevel";
+
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-black/8 py-12">
@@ -28,6 +30,16 @@ export default function Footer() {
             <ul className="flex flex-col gap-2.5 text-sm text-neutral-500">
               <li><a href="#" className="hover:text-black transition-colors">About</a></li>
               <li><a href="#" className="hover:text-black transition-colors">Blog</a></li>
+              <li>
+                <a
+                  href={highLevelLoginUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-black transition-colors"
+                >
+                  Client Login
+                </a>
+              </li>
               <li><a href="#contact" className="hover:text-black transition-colors">Contact</a></li>
               <li><a href="#" className="hover:text-black transition-colors">Privacy Policy</a></li>
             </ul>
