@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import LeadConnectorWidget from "@/components/LeadConnectorWidget";
 import "./globals.css";
 
@@ -14,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vantage Web — Conversion-Focused Websites for Service Businesses",
+  title: "Cornerstone Marketing — Conversion-Focused Websites for Service Businesses",
   description:
     "We design and build conversion-focused websites for service businesses, with automation and AI add-ons available later as the business grows.",
 };
@@ -32,6 +33,11 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         {children}
         <LeadConnectorWidget />
+        <Script
+          src="https://api.getcornerstonemarketing.com/js/external-tracking.js"
+          data-tracking-id="tk_a3909e46fe7e4d278130676fdd2af38a"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
