@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import LeadConnectorWidget from "@/components/LeadConnectorWidget";
 import "./globals.css";
 
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         {children}
         <LeadConnectorWidget />
+        <Analytics />
         <Script
           src="https://api.getcornerstonemarketing.com/js/external-tracking.js"
           data-tracking-id="tk_a3909e46fe7e4d278130676fdd2af38a"
