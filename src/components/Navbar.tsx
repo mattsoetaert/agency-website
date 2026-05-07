@@ -14,7 +14,7 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-8 text-sm text-neutral-500">
           <a href="#features" className="hover:text-black transition-colors">What we do</a>
-          <a href="#how-it-works" className="hover:text-black transition-colors">How it Works</a>
+          <a href="/articles" className="hover:text-black transition-colors">Articles</a>
           <a href="#faq" className="hover:text-black transition-colors">FAQ</a>
         </div>
 
@@ -53,7 +53,7 @@ export default function Navbar() {
       {open && (
         <div className="md:hidden border-t border-black/8 bg-[#f5f4f0] px-4 py-4 flex flex-col gap-4 text-sm">
           <a href="#features" className="text-neutral-500 hover:text-black" onClick={() => setOpen(false)}>What we do</a>
-          <a href="#how-it-works" className="text-neutral-500 hover:text-black" onClick={() => setOpen(false)}>How it Works</a>
+          <a href="/articles" className="text-neutral-500 hover:text-black" onClick={() => setOpen(false)}>Articles</a>
           <a href="#faq" className="text-neutral-500 hover:text-black" onClick={() => setOpen(false)}>FAQ</a>
           <a
             href={highLevelLoginUrl}

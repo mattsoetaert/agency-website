@@ -17,3 +17,40 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
+
+/* Article body typography */
+.prose-article {
+  color: #111;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  max-width: 68ch;
+}
+.prose-article p { margin-bottom: 1.5rem; }
+.prose-article h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 0.875rem;
+  color: #000;
+}
+.prose-article h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0.625rem;
+  color: #000;
+}
+.prose-article ul,
+.prose-article ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.prose-article ul { list-style-type: disc; }
+.prose-article ol { list-style-type: decimal; }
+.prose-article li { margin-bottom: 0.4rem; }
+.prose-article strong { font-weight: 700; }
+.prose-article a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-article a:hover { color: #555; }
