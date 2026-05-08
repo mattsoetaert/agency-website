@@ -21,6 +21,8 @@ export default function BookingContent() {
 
   // Build the GHL booking URL with pre-filled lead info, so the booking form
   // is pre-populated and the booking dedupes onto the same GHL contact.
+  // GHL's widget versions are inconsistent — Neo uses camelCase, Classic uses
+  // snake_case. We send both so it works regardless of which widget is active.
   const bookingUrl = useMemo(() => {
     const url = new URL(GHL_BOOKING_URL);
 
@@ -28,11 +30,26 @@ export default function BookingContent() {
       const parts = lead.name.trim().split(/\s+/);
       const firstName = parts[0] ?? "";
       const lastName = parts.slice(1).join(" ");
-      if (firstName) url.searchParams.set("first_name", firstName);
-      if (lastName) url.searchParams.set("last_name", lastName);
+      if (firstName) {
+        url.searchParams.set("first_name", firstName);
+        url.searchParams.set("firstName", firstName);
+      }
+      if (lastName) {
+        url.searchParams.set("last_name", lastName);
+        url.searchParams.set("lastName", lastName);
+      }
+      url.searchParams.set("name", lead.name);
+      url.searchParams.set("full_name", lead.name);
     }
-    if (lead.email) url.searchParams.set("email", lead.email);
-    if (lead.phone) url.searchParams.set("phone", lead.phone);
+    if (lead.email) {
+      url.searchParams.set("email", lead.email);
+    }
+    if (lead.phone) {
+      // Some GHL widgets reject formatted phones; send digits only as backup
+      const digitsOnly = lead.phone.replace(/\D/g, "");
+      url.searchParams.set("phone", lead.phone);
+      url.searchParams.set("phone_number", digitsOnly);
+    }
 
     return url.toString();
   }, [lead.email, lead.name, lead.phone]);
