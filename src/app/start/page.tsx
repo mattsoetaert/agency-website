@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BrandLogo from "@/components/BrandLogo";
 
 const YOUTUBE_VIDEO_ID = "ZNQc18mNZKc";
@@ -20,11 +20,47 @@ const REVENUE_RANGES = [
   "$250k+/month",
 ];
 
+type Lead = {
+  fullName: string;
+  email: string;
+  phone: string;
+};
+
+const LEAD_STORAGE_KEY = "cornerstone_funnel_lead";
+
 export default function StartPage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [videoUnlocked, setVideoUnlocked] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [lead, setLead] = useState<Lead | null>(null);
+
+  // On mount, restore lead from sessionStorage so refreshing /start
+  // doesn't make the user re-watch behind the gate
+  useEffect(() => {
+    try {
+      const stored = sessionStorage.getItem(LEAD_STORAGE_KEY);
+      if (stored) {
+        const parsed = JSON.parse(stored) as Lead;
+        if (parsed?.email) {
+          setLead(parsed);
+          setVideoUnlocked(true);
+        }
+      }
+    } catch {
+      // ignore
+    }
+  }, []);
+
+  // Build /book URL with lead info pre-filled in query params,
+  // so Calendly auto-populates name + email and GHL dedupes the contact.
+  const bookHref = lead
+    ? `/book?${new URLSearchParams({
+        name: lead.fullName,
+        email: lead.email,
+        phone: lead.phone,
+      }).toString()}`
+    : "/book";
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -33,11 +69,11 @@ export default function StartPage() {
 
     const formData = new FormData(e.currentTarget);
     const payload = {
-      fullName: formData.get("fullName"),
-      email: formData.get("email"),
-      phone: formData.get("phone"),
-      ownsBusiness: formData.get("ownsBusiness"),
-      monthlyRevenue: formData.get("monthlyRevenue"),
+      fullName: String(formData.get("fullName") ?? ""),
+      email: String(formData.get("email") ?? ""),
+      phone: String(formData.get("phone") ?? ""),
+      ownsBusiness: String(formData.get("ownsBusiness") ?? ""),
+      monthlyRevenue: String(formData.get("monthlyRevenue") ?? ""),
     };
 
     try {
@@ -51,6 +87,20 @@ export default function StartPage() {
         const data = await res.json().catch(() => ({}));
         throw new Error(data.error || "Something went wrong. Please try again.");
       }
+
+      // Persist the lead so the Book buttons can pass it to /book
+      // and GHL can dedupe the same contact when they book the call.
+      const leadInfo: Lead = {
+        fullName: payload.fullName,
+        email: payload.email,
+        phone: payload.phone,
+      };
+      try {
+        sessionStorage.setItem(LEAD_STORAGE_KEY, JSON.stringify(leadInfo));
+      } catch {
+        // sessionStorage may be unavailable (private mode) — non-fatal
+      }
+      setLead(leadInfo);
 
       // Success — close modal, unlock video, autoplay it
       setModalOpen(false);
@@ -153,7 +203,7 @@ export default function StartPage() {
             you exactly how we&apos;d grow it.
           </p>
           <a
-            href="/book"
+            href={bookHref}
             className="inline-block px-8 py-4 bg-black hover:bg-neutral-800 text-white font-semibold text-sm tracking-wide transition-colors"
           >
             Book a Free Strategy Call
@@ -219,7 +269,7 @@ export default function StartPage() {
             business.
           </p>
           <a
-            href="/book"
+            href={bookHref}
             className="inline-block px-8 py-4 bg-white text-black hover:bg-neutral-100 font-semibold text-sm tracking-wide transition-colors"
           >
             Book a Free Strategy Call
