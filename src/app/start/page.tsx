@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import BrandLogo from "@/components/BrandLogo";
 
 const YOUTUBE_VIDEO_ID = "ZNQc18mNZKc";
+const YOUTUBE_THUMBNAIL = `https://img.youtube.com/vi/${YOUTUBE_VIDEO_ID}/maxresdefault.jpg`;
 
 // Add real testimonial video IDs here once recorded.
 const TESTIMONIALS: { id: string; name: string; business: string }[] = [
@@ -21,8 +21,8 @@ const REVENUE_RANGES = [
 ];
 
 export default function StartPage() {
-  const router = useRouter();
   const [modalOpen, setModalOpen] = useState(false);
+  const [videoUnlocked, setVideoUnlocked] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -52,13 +52,17 @@ export default function StartPage() {
         throw new Error(data.error || "Something went wrong. Please try again.");
       }
 
-      // Success — push them to /book with their info preloaded
-      const params = new URLSearchParams({
-        name: String(payload.fullName ?? ""),
-        email: String(payload.email ?? ""),
-        phone: String(payload.phone ?? ""),
-      });
-      router.push(`/book?${params.toString()}`);
+      // Success — close modal, unlock video, autoplay it
+      setModalOpen(false);
+      setVideoUnlocked(true);
+      setSubmitting(false);
+
+      // Smoothly scroll the video into view
+      setTimeout(() => {
+        document
+          .getElementById("video-player")
+          ?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 100);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong.");
       setSubmitting(false);
@@ -67,7 +71,7 @@ export default function StartPage() {
 
   return (
     <main className="min-h-screen bg-[#f5f4f0]">
-      {/* Header — logo only, no nav (paid traffic landing page) */}
+      {/* Header — logo only, no nav */}
       <header className="border-b border-black/10 bg-[#f5f4f0]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-center">
           <BrandLogo href="/start" imageClassName="h-10 w-auto max-w-[200px]" priority />
@@ -84,38 +88,76 @@ export default function StartPage() {
             A 5-minute video about exactly what we do for your business.
           </h1>
           <p className="text-neutral-500 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-10">
-            Watch this short walkthrough first, then book a free strategy call below.
+            Click below to watch the walkthrough.
           </p>
 
-          {/* Clean YouTube embed — no branding, no related videos */}
-          <div className="relative w-full aspect-video bg-black overflow-hidden shadow-[0_24px_80px_rgba(0,0,0,0.12)]">
-            <iframe
-              className="absolute inset-0 w-full h-full"
-              src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_VIDEO_ID}?rel=0&modestbranding=1&iv_load_policy=3&playsinline=1`}
-              title="Cornerstone Marketing — What we do"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+          {/* Video — gated by form. Shows thumbnail + play button until form submitted. */}
+          <div
+            id="video-player"
+            className="relative w-full aspect-video bg-black overflow-hidden shadow-[0_24px_80px_rgba(0,0,0,0.12)]"
+          >
+            {!videoUnlocked ? (
+              <button
+                onClick={() => setModalOpen(true)}
+                className="absolute inset-0 w-full h-full group cursor-pointer"
+                aria-label="Play video"
+              >
+                {/* Thumbnail */}
+                <img
+                  src={YOUTUBE_THUMBNAIL}
+                  alt="Watch the video"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                {/* Dark overlay */}
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
+                {/* Play button */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 bg-white/95 group-hover:bg-white rounded-full flex items-center justify-center shadow-2xl transition-all group-hover:scale-110">
+                    <svg
+                      className="w-8 h-8 sm:w-10 sm:h-10 text-black ml-1"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                </div>
+                {/* Bottom label */}
+                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-left">
+                  <p className="text-white font-semibold text-sm sm:text-base">
+                    ▶  Click to watch — 5 min
+                  </p>
+                </div>
+              </button>
+            ) : (
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0&modestbranding=1&iv_load_policy=3&playsinline=1`}
+                title="Cornerstone Marketing — What we do"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            )}
           </div>
         </div>
       </section>
 
-      {/* Primary CTA */}
+      {/* Primary CTA — book button */}
       <section className="px-4 sm:px-6 py-10">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-black mb-3">
             Ready to talk?
           </h2>
           <p className="text-neutral-500 text-base mb-6 max-w-lg mx-auto">
-            Book a free 30-minute strategy call. We&apos;ll review your business and show you
-            exactly how we&apos;d grow it.
+            Book a free 30-minute strategy call. We&apos;ll review your business and show
+            you exactly how we&apos;d grow it.
           </p>
-          <button
-            onClick={() => setModalOpen(true)}
-            className="inline-block px-8 py-4 bg-black hover:bg-neutral-800 text-white font-semibold text-sm tracking-wide transition-colors cursor-pointer"
+          <a
+            href="/book"
+            className="inline-block px-8 py-4 bg-black hover:bg-neutral-800 text-white font-semibold text-sm tracking-wide transition-colors"
           >
             Book a Free Strategy Call
-          </button>
+          </a>
         </div>
       </section>
 
@@ -152,8 +194,13 @@ export default function StartPage() {
           ) : (
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {[1, 2, 3].map((i) => (
-                <div key={i} className="bg-[#f5f4f0] border border-dashed border-black/15 aspect-video flex items-center justify-center">
-                  <p className="text-neutral-400 text-xs uppercase tracking-[0.18em]">Testimonial {i} coming soon</p>
+                <div
+                  key={i}
+                  className="bg-[#f5f4f0] border border-dashed border-black/15 aspect-video flex items-center justify-center"
+                >
+                  <p className="text-neutral-400 text-xs uppercase tracking-[0.18em]">
+                    Testimonial {i} coming soon
+                  </p>
                 </div>
               ))}
             </div>
@@ -168,18 +215,19 @@ export default function StartPage() {
             See if we&apos;re a fit.
           </h2>
           <p className="text-neutral-400 text-base mb-6 max-w-lg mx-auto">
-            One call, 30 minutes. No pressure, no pitch — just a clear plan for your business.
+            One call, 30 minutes. No pressure, no pitch — just a clear plan for your
+            business.
           </p>
-          <button
-            onClick={() => setModalOpen(true)}
-            className="inline-block px-8 py-4 bg-white text-black hover:bg-neutral-100 font-semibold text-sm tracking-wide transition-colors cursor-pointer"
+          <a
+            href="/book"
+            className="inline-block px-8 py-4 bg-white text-black hover:bg-neutral-100 font-semibold text-sm tracking-wide transition-colors"
           >
             Book a Free Strategy Call
-          </button>
+          </a>
         </div>
       </section>
 
-      {/* Form Modal */}
+      {/* Form Modal — gates the video */}
       {modalOpen && (
         <div
           className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto"
@@ -194,18 +242,30 @@ export default function StartPage() {
                 className="absolute top-4 right-4 text-neutral-400 hover:text-black transition-colors"
                 aria-label="Close"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               </button>
             )}
 
             <p className="text-neutral-400 text-xs font-semibold uppercase tracking-[0.24em] mb-3">
-              Step 1 of 2
+              Quick info
             </p>
-            <h2 className="text-2xl font-bold text-black mb-2">Tell us about you.</h2>
+            <h2 className="text-2xl font-bold text-black mb-2">
+              Get instant access to the video.
+            </h2>
             <p className="text-neutral-500 text-sm mb-6">
-              Quick info so we can tailor the call. You&apos;ll pick a time on the next page.
+              Fill this out and the video starts immediately.
             </p>
 
             {error && (
@@ -216,7 +276,9 @@ export default function StartPage() {
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <label className="block">
-                <span className="block text-xs font-medium text-neutral-500 mb-2">Full Name</span>
+                <span className="block text-xs font-medium text-neutral-500 mb-2">
+                  Full Name
+                </span>
                 <input
                   name="fullName"
                   type="text"
@@ -249,14 +311,18 @@ export default function StartPage() {
               </label>
 
               <label className="block">
-                <span className="block text-xs font-medium text-neutral-500 mb-2">Do you own a business?</span>
+                <span className="block text-xs font-medium text-neutral-500 mb-2">
+                  Do you own a business?
+                </span>
                 <select
                   name="ownsBusiness"
                   required
                   defaultValue=""
                   className="w-full px-4 py-3 bg-[#f5f4f0] border border-black/10 text-black text-sm focus:outline-none focus:ring-1 focus:ring-black"
                 >
-                  <option value="" disabled>Select one</option>
+                  <option value="" disabled>
+                    Select one
+                  </option>
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
                   <option value="Starting one">Starting one</option>
@@ -264,16 +330,22 @@ export default function StartPage() {
               </label>
 
               <label className="block">
-                <span className="block text-xs font-medium text-neutral-500 mb-2">Monthly Revenue</span>
+                <span className="block text-xs font-medium text-neutral-500 mb-2">
+                  Monthly Revenue
+                </span>
                 <select
                   name="monthlyRevenue"
                   required
                   defaultValue=""
                   className="w-full px-4 py-3 bg-[#f5f4f0] border border-black/10 text-black text-sm focus:outline-none focus:ring-1 focus:ring-black"
                 >
-                  <option value="" disabled>Select a range</option>
+                  <option value="" disabled>
+                    Select a range
+                  </option>
                   {REVENUE_RANGES.map((r) => (
-                    <option key={r} value={r}>{r}</option>
+                    <option key={r} value={r}>
+                      {r}
+                    </option>
                   ))}
                 </select>
               </label>
@@ -283,7 +355,7 @@ export default function StartPage() {
                 disabled={submitting}
                 className="w-full px-6 py-4 bg-black hover:bg-neutral-800 disabled:opacity-50 text-white font-semibold text-sm transition-colors mt-6"
               >
-                {submitting ? "Sending…" : "Continue To Booking →"}
+                {submitting ? "Loading…" : "Watch The Video →"}
               </button>
             </form>
           </div>
