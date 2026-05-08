@@ -26,14 +26,38 @@ type Lead = {
   phone: string;
 };
 
+type ModalIntent = "video" | "book";
+
 const LEAD_STORAGE_KEY = "cornerstone_funnel_lead";
 
 export default function StartPage() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [modalIntent, setModalIntent] = useState<ModalIntent>("video");
   const [videoUnlocked, setVideoUnlocked] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [lead, setLead] = useState<Lead | null>(null);
+
+  function buildBookHref(l: Lead) {
+    return `/book?${new URLSearchParams({
+      name: l.fullName,
+      email: l.email,
+      phone: l.phone,
+    }).toString()}`;
+  }
+
+  function openModal(intent: ModalIntent) {
+    setModalIntent(intent);
+    setError(null);
+    setModalOpen(true);
+  }
+
+  function handleBookClick(e: React.MouseEvent<HTMLAnchorElement>) {
+    if (!lead) {
+      e.preventDefault();
+      openModal("book");
+    }
+  }
 
   // On mount, restore lead from sessionStorage so refreshing /start
   // doesn't make the user re-watch behind the gate
@@ -52,15 +76,9 @@ export default function StartPage() {
     }
   }, []);
 
-  // Build /book URL with lead info pre-filled in query params,
-  // so Calendly auto-populates name + email and GHL dedupes the contact.
-  const bookHref = lead
-    ? `/book?${new URLSearchParams({
-        name: lead.fullName,
-        email: lead.email,
-        phone: lead.phone,
-      }).toString()}`
-    : "/book";
+  // Build /book URL with lead info pre-filled in query params, so the GHL
+  // booking widget auto-populates and the booking dedupes onto the same contact.
+  const bookHref = lead ? buildBookHref(lead) : "/book";
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -102,12 +120,18 @@ export default function StartPage() {
       }
       setLead(leadInfo);
 
-      // Success — close modal, unlock video, autoplay it
-      setModalOpen(false);
+      // Success — always unlock the video so they can come back to it later
       setVideoUnlocked(true);
+      setModalOpen(false);
       setSubmitting(false);
 
-      // Smoothly scroll the video into view
+      if (modalIntent === "book") {
+        // They were trying to book — send them to /book with their info pre-filled
+        window.location.href = buildBookHref(leadInfo);
+        return;
+      }
+
+      // They wanted to watch the video — scroll the player into view
       setTimeout(() => {
         document
           .getElementById("video-player")
@@ -148,7 +172,7 @@ export default function StartPage() {
           >
             {!videoUnlocked ? (
               <button
-                onClick={() => setModalOpen(true)}
+                onClick={() => openModal("video")}
                 className="absolute inset-0 w-full h-full group cursor-pointer"
                 aria-label="Play video"
               >
@@ -204,7 +228,8 @@ export default function StartPage() {
           </p>
           <a
             href={bookHref}
-            className="inline-block px-8 py-4 bg-black hover:bg-neutral-800 text-white font-semibold text-sm tracking-wide transition-colors"
+            onClick={handleBookClick}
+            className="inline-block px-8 py-4 bg-black hover:bg-neutral-800 text-white font-semibold text-sm tracking-wide transition-colors cursor-pointer"
           >
             Book a Free Strategy Call
           </a>
@@ -270,7 +295,8 @@ export default function StartPage() {
           </p>
           <a
             href={bookHref}
-            className="inline-block px-8 py-4 bg-white text-black hover:bg-neutral-100 font-semibold text-sm tracking-wide transition-colors"
+            onClick={handleBookClick}
+            className="inline-block px-8 py-4 bg-white text-black hover:bg-neutral-100 font-semibold text-sm tracking-wide transition-colors cursor-pointer"
           >
             Book a Free Strategy Call
           </a>
@@ -312,10 +338,14 @@ export default function StartPage() {
               Quick info
             </p>
             <h2 className="text-2xl font-bold text-black mb-2">
-              Get instant access to the video.
+              {modalIntent === "book"
+                ? "Before you book."
+                : "Get instant access to the video."}
             </h2>
             <p className="text-neutral-500 text-sm mb-6">
-              Fill this out and the video starts immediately.
+              {modalIntent === "book"
+                ? "Fill this out and we'll send you to the booking page."
+                : "Fill this out and the video starts immediately."}
             </p>
 
             {error && (
@@ -405,7 +435,11 @@ export default function StartPage() {
                 disabled={submitting}
                 className="w-full px-6 py-4 bg-black hover:bg-neutral-800 disabled:opacity-50 text-white font-semibold text-sm transition-colors mt-6"
               >
-                {submitting ? "Loading…" : "Watch The Video →"}
+                {submitting
+                  ? "Loading…"
+                  : modalIntent === "book"
+                  ? "Continue To Booking →"
+                  : "Watch The Video →"}
               </button>
             </form>
           </div>
