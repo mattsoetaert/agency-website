@@ -30,6 +30,15 @@ type ModalIntent = "video" | "book";
 
 const LEAD_STORAGE_KEY = "cornerstone_funnel_lead";
 
+// Format raw input as a US-style phone number: (555) 555-5555
+function formatPhone(value: string): string {
+  const digits = value.replace(/\D/g, "").slice(0, 10);
+  if (digits.length === 0) return "";
+  if (digits.length <= 3) return `(${digits}`;
+  if (digits.length <= 6) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+  return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+}
+
 export default function StartPage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalIntent, setModalIntent] = useState<ModalIntent>("video");
@@ -37,6 +46,7 @@ export default function StartPage() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [lead, setLead] = useState<Lead | null>(null);
+  const [phoneInput, setPhoneInput] = useState("");
 
   function buildBookHref(l: Lead) {
     return `/book?${new URLSearchParams({
@@ -385,7 +395,12 @@ export default function StartPage() {
                   name="phone"
                   type="tel"
                   required
+                  inputMode="numeric"
+                  autoComplete="tel"
                   placeholder="(555) 555-5555"
+                  value={phoneInput}
+                  onChange={(e) => setPhoneInput(formatPhone(e.target.value))}
+                  minLength={14}
                   className="w-full px-4 py-3 bg-[#f5f4f0] border border-black/10 text-black placeholder-neutral-400 text-sm focus:outline-none focus:ring-1 focus:ring-black"
                 />
               </label>
