@@ -1,11 +1,17 @@
 "use client";
 
 import { useMemo } from "react";
+import Script from "next/script";
 import { useSearchParams } from "next/navigation";
+
+const GHL_BOOKING_URL =
+  "https://api.getcornerstonemarketing.com/widget/booking/5XLhwB7TZlSvDnCbyiRK";
+
+const GHL_FORM_EMBED_SCRIPT =
+  "https://api.getcornerstonemarketing.com/js/form_embed.js";
 
 export default function BookingContent() {
   const searchParams = useSearchParams();
-  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL;
 
   const lead = {
     name: searchParams.get("name") ?? "",
@@ -15,17 +21,23 @@ export default function BookingContent() {
     details: searchParams.get("details") ?? "",
   };
 
+  // Build the GHL booking URL with pre-filled lead info so the user
+  // doesn't retype their name/email/phone in the booking form.
   const bookingUrl = useMemo(() => {
-    if (!calendlyUrl) return null;
+    const url = new URL(GHL_BOOKING_URL);
 
-    const url = new URL(calendlyUrl);
-    url.searchParams.set("hide_gdpr_banner", "1");
-
-    if (lead.name) url.searchParams.set("name", lead.name);
+    if (lead.name) {
+      const parts = lead.name.trim().split(/\s+/);
+      const firstName = parts[0] ?? "";
+      const lastName = parts.slice(1).join(" ");
+      if (firstName) url.searchParams.set("first_name", firstName);
+      if (lastName) url.searchParams.set("last_name", lastName);
+    }
     if (lead.email) url.searchParams.set("email", lead.email);
+    if (lead.phone) url.searchParams.set("phone", lead.phone);
 
     return url.toString();
-  }, [calendlyUrl, lead.email, lead.name]);
+  }, [lead.email, lead.name, lead.phone]);
 
   return (
     <section className="bg-[#f5f4f0] min-h-screen pt-24 pb-20">
@@ -63,17 +75,15 @@ export default function BookingContent() {
           </div>
 
           <div className="bg-white border border-black/10 shadow-[0_24px_80px_rgba(0,0,0,0.08)] p-3 sm:p-4">
-            {bookingUrl ? (
-              <iframe
-                src={bookingUrl}
-                title="Book a strategy call"
-                className="w-full min-w-0 h-[760px] border-0"
-              />
-            ) : (
-              <div className="border border-dashed border-black/15 bg-[#f5f4f0] p-6 text-sm text-neutral-500 leading-relaxed">
-                Add your Calendly link in <code>NEXT_PUBLIC_CALENDLY_URL</code> to show the booking page here.
-              </div>
-            )}
+            <iframe
+              src={bookingUrl}
+              title="Book a strategy call"
+              className="w-full min-w-0 h-[760px] border-0"
+              scrolling="no"
+              id="ghl-booking-iframe"
+            />
+            {/* GHL embed script auto-resizes the iframe to its content height */}
+            <Script src={GHL_FORM_EMBED_SCRIPT} strategy="afterInteractive" />
           </div>
         </div>
       </div>
