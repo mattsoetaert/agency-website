@@ -24,6 +24,8 @@ type Lead = {
   fullName: string;
   email: string;
   phone: string;
+  ownsBusiness: string;
+  monthlyRevenue: string;
 };
 
 type ModalIntent = "video" | "book";
@@ -53,6 +55,8 @@ export default function StartPage() {
       name: l.fullName,
       email: l.email,
       phone: l.phone,
+      ownsBusiness: l.ownsBusiness,
+      monthlyRevenue: l.monthlyRevenue,
     }).toString()}`;
   }
 
@@ -122,6 +126,8 @@ export default function StartPage() {
         fullName: payload.fullName,
         email: payload.email,
         phone: payload.phone,
+        ownsBusiness: payload.ownsBusiness,
+        monthlyRevenue: payload.monthlyRevenue,
       };
       try {
         sessionStorage.setItem(LEAD_STORAGE_KEY, JSON.stringify(leadInfo));

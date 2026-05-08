@@ -17,6 +17,8 @@ export default function BookingContent() {
     name: searchParams.get("name") ?? "",
     email: searchParams.get("email") ?? "",
     phone: searchParams.get("phone") ?? "",
+    ownsBusiness: searchParams.get("ownsBusiness") ?? "",
+    monthlyRevenue: searchParams.get("monthlyRevenue") ?? "",
   };
 
   // Build the GHL booking URL with pre-filled lead info, so the booking form
@@ -77,6 +79,14 @@ export default function BookingContent() {
               <div>
                 <p className="text-neutral-400 mb-1">Phone</p>
                 <p className="text-black">{lead.phone || "Not provided"}</p>
+              </div>
+              <div>
+                <p className="text-neutral-400 mb-1">Owns a business</p>
+                <p className="text-black">{lead.ownsBusiness || "Not provided"}</p>
+              </div>
+              <div>
+                <p className="text-neutral-400 mb-1">Monthly revenue</p>
+                <p className="text-black">{lead.monthlyRevenue || "Not provided"}</p>
               </div>
             </div>
           </div>
