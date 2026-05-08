@@ -171,14 +171,14 @@ export default function StartPage() {
       {/* Hero + Video */}
       <section className="px-4 sm:px-6 pt-12 sm:pt-16 pb-10">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-neutral-400 text-xs font-semibold uppercase tracking-[0.24em] mb-4">
-            Watch first
+          <p className="text-black text-base sm:text-lg lg:text-xl font-bold uppercase tracking-[0.24em] mb-4">
+            Step 1
           </p>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black leading-[1.1] mb-4 max-w-3xl mx-auto">
-            A 5-minute video about exactly what we do for your business.
+            A 5 minute video about exactly what we do.
           </h1>
-          <p className="text-neutral-500 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-10">
-            Click below to watch the walkthrough.
+          <p className="text-black text-3xl sm:text-4xl lg:text-5xl font-bold leading-relaxed max-w-2xl mx-auto mb-10">
+            👇 We do all this for only $297/mo
           </p>
 
           {/* Video — gated by form. Shows thumbnail + play button until form submitted. */}
@@ -235,84 +235,19 @@ export default function StartPage() {
       {/* Primary CTA — book button */}
       <section className="px-4 sm:px-6 py-10">
         <div className="max-w-2xl mx-auto text-center">
+          <p className="text-black text-base sm:text-lg lg:text-xl font-bold uppercase tracking-[0.24em] mb-4">
+            Step 2
+          </p>
           <h2 className="text-2xl sm:text-3xl font-bold text-black mb-3">
-            Ready to talk?
+            Schedule a call and get your questions answered
           </h2>
-          <p className="text-neutral-500 text-base mb-6 max-w-lg mx-auto">
-            Book a free 30-minute strategy call. We&apos;ll review your business and show
-            you exactly how we&apos;d grow it.
+          <p className="text-black text-lg sm:text-xl lg:text-2xl font-bold mb-6 max-w-lg mx-auto">
+            🕰️ Same day slots available
           </p>
           <a
             href={bookHref}
             onClick={handleBookClick}
             className="inline-block px-8 py-4 bg-black hover:bg-neutral-800 text-white font-semibold text-sm tracking-wide transition-colors cursor-pointer"
-          >
-            Book a Free Strategy Call
-          </a>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="px-4 sm:px-6 py-12 border-t border-black/8 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-neutral-400 text-xs font-semibold uppercase tracking-[0.24em] mb-3 text-center">
-            What clients say
-          </p>
-          <h2 className="text-2xl sm:text-3xl font-bold text-black text-center mb-10">
-            Real results, in their words.
-          </h2>
-
-          {TESTIMONIALS.length > 0 ? (
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {TESTIMONIALS.map((t) => (
-                <div key={t.id} className="bg-[#f5f4f0] border border-black/10 overflow-hidden">
-                  <div className="relative w-full aspect-video bg-black">
-                    <iframe
-                      className="absolute inset-0 w-full h-full"
-                      src={`https://www.youtube-nocookie.com/embed/${t.id}?rel=0&modestbranding=1&iv_load_policy=3&playsinline=1`}
-                      title={`${t.name} — ${t.business}`}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    />
-                  </div>
-                  <div className="p-4">
-                    <p className="font-semibold text-black text-sm">{t.name}</p>
-                    <p className="text-neutral-500 text-xs">{t.business}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {[1, 2, 3].map((i) => (
-                <div
-                  key={i}
-                  className="bg-[#f5f4f0] border border-dashed border-black/15 aspect-video flex items-center justify-center"
-                >
-                  <p className="text-neutral-400 text-xs uppercase tracking-[0.18em]">
-                    Testimonial {i} coming soon
-                  </p>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* Bottom CTA repeat */}
-      <section className="px-4 sm:px-6 py-16 bg-black text-white">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3">
-            See if we&apos;re a fit.
-          </h2>
-          <p className="text-neutral-400 text-base mb-6 max-w-lg mx-auto">
-            One call, 30 minutes. No pressure, no pitch — just a clear plan for your
-            business.
-          </p>
-          <a
-            href={bookHref}
-            onClick={handleBookClick}
-            className="inline-block px-8 py-4 bg-white text-black hover:bg-neutral-100 font-semibold text-sm tracking-wide transition-colors cursor-pointer"
           >
             Book a Free Strategy Call
           </a>
