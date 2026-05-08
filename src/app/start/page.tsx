@@ -285,7 +285,7 @@ export default function StartPage() {
               </button>
             )}
 
-            <p className="text-neutral-400 text-xs font-semibold uppercase tracking-[0.24em] mb-3">
+            <p className="text-black text-sm font-bold uppercase tracking-[0.24em] mb-3">
               Quick info
             </p>
             <h2 className="text-2xl font-bold text-black mb-2">
@@ -293,7 +293,7 @@ export default function StartPage() {
                 ? "Before you book."
                 : "Get instant access to the video."}
             </h2>
-            <p className="text-neutral-500 text-sm mb-6">
+            <p className="text-black text-base font-medium mb-6">
               {modalIntent === "book"
                 ? "Fill this out and we'll send you to the booking page."
                 : "Fill this out and the video starts immediately."}
@@ -307,7 +307,7 @@ export default function StartPage() {
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <label className="block">
-                <span className="block text-xs font-medium text-neutral-500 mb-2">
+                <span className="block text-base font-bold text-black mb-2">
                   Full Name
                 </span>
                 <input
@@ -315,23 +315,23 @@ export default function StartPage() {
                   type="text"
                   required
                   placeholder="Jane Smith"
-                  className="w-full px-4 py-3 bg-[#f5f4f0] border border-black/10 text-black placeholder-neutral-400 text-sm focus:outline-none focus:ring-1 focus:ring-black"
+                  className="w-full px-4 py-3 bg-[#f5f4f0] border-2 border-black text-black font-semibold placeholder-neutral-400 text-base focus:outline-none focus:ring-2 focus:ring-black"
                 />
               </label>
 
               <label className="block">
-                <span className="block text-xs font-medium text-neutral-500 mb-2">Email</span>
+                <span className="block text-base font-bold text-black mb-2">Email</span>
                 <input
                   name="email"
                   type="email"
                   required
                   placeholder="jane@business.com"
-                  className="w-full px-4 py-3 bg-[#f5f4f0] border border-black/10 text-black placeholder-neutral-400 text-sm focus:outline-none focus:ring-1 focus:ring-black"
+                  className="w-full px-4 py-3 bg-[#f5f4f0] border-2 border-black text-black font-semibold placeholder-neutral-400 text-base focus:outline-none focus:ring-2 focus:ring-black"
                 />
               </label>
 
               <label className="block">
-                <span className="block text-xs font-medium text-neutral-500 mb-2">Phone</span>
+                <span className="block text-base font-bold text-black mb-2">Phone</span>
                 <input
                   name="phone"
                   type="tel"
@@ -342,19 +342,19 @@ export default function StartPage() {
                   value={phoneInput}
                   onChange={(e) => setPhoneInput(formatPhone(e.target.value))}
                   minLength={14}
-                  className="w-full px-4 py-3 bg-[#f5f4f0] border border-black/10 text-black placeholder-neutral-400 text-sm focus:outline-none focus:ring-1 focus:ring-black"
+                  className="w-full px-4 py-3 bg-[#f5f4f0] border-2 border-black text-black font-semibold placeholder-neutral-400 text-base focus:outline-none focus:ring-2 focus:ring-black"
                 />
               </label>
 
               <label className="block">
-                <span className="block text-xs font-medium text-neutral-500 mb-2">
+                <span className="block text-base font-bold text-black mb-2">
                   Do you own a business?
                 </span>
                 <select
                   name="ownsBusiness"
                   required
                   defaultValue=""
-                  className="w-full px-4 py-3 bg-[#f5f4f0] border border-black/10 text-black text-sm focus:outline-none focus:ring-1 focus:ring-black"
+                  className="w-full px-4 py-3 bg-[#f5f4f0] border-2 border-black text-black font-semibold text-base focus:outline-none focus:ring-2 focus:ring-black"
                 >
                   <option value="" disabled>
                     Select one
@@ -366,14 +366,14 @@ export default function StartPage() {
               </label>
 
               <label className="block">
-                <span className="block text-xs font-medium text-neutral-500 mb-2">
+                <span className="block text-base font-bold text-black mb-2">
                   Monthly Revenue
                 </span>
                 <select
                   name="monthlyRevenue"
                   required
                   defaultValue=""
-                  className="w-full px-4 py-3 bg-[#f5f4f0] border border-black/10 text-black text-sm focus:outline-none focus:ring-1 focus:ring-black"
+                  className="w-full px-4 py-3 bg-[#f5f4f0] border-2 border-black text-black font-semibold text-base focus:outline-none focus:ring-2 focus:ring-black"
                 >
                   <option value="" disabled>
                     Select a range
