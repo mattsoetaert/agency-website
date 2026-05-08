@@ -28,7 +28,7 @@ export default function Navbar() {
             Log in
           </a>
           <a
-            href="#contact"
+            href="/start"
             className="text-sm px-4 py-2 bg-black hover:bg-neutral-800 text-white font-medium transition-colors"
           >
             Book a Call
@@ -65,7 +65,7 @@ export default function Navbar() {
             Client Login
           </a>
           <a
-            href="#contact"
+            href="/start"
             className="text-center px-4 py-2 bg-black hover:bg-neutral-800 text-white font-medium"
             onClick={() => setOpen(false)}
           >
