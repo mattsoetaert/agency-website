@@ -41,7 +41,13 @@ export default function Hero() {
             </p>
 
             <div className="relative aspect-video bg-black mb-6 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-neutral-700 to-black" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://img.youtube.com/vi/ZNQc18mNZKc/maxresdefault.jpg"
+                alt="Watch the video"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-16 h-16 bg-white/95 group-hover:bg-white rounded-full flex items-center justify-center shadow-xl transition-all group-hover:scale-110">
                   <svg
