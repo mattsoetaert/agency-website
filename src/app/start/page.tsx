@@ -238,12 +238,9 @@ export default function StartPage() {
           <p className="text-black text-base sm:text-lg lg:text-xl font-bold uppercase tracking-[0.24em] mb-4">
             Step 2
           </p>
-          <h2 className="text-2xl sm:text-3xl font-bold text-black mb-3">
+          <h2 className="text-2xl sm:text-3xl font-bold text-black mb-6">
             Schedule a call and get your questions answered
           </h2>
-          <p className="text-black text-lg sm:text-xl lg:text-2xl font-bold mb-6 max-w-lg mx-auto">
-            🕰️ Same day slots available
-          </p>
           <a
             href={bookHref}
             onClick={handleBookClick}
@@ -251,6 +248,9 @@ export default function StartPage() {
           >
             Book a Free Strategy Call
           </a>
+          <p className="text-black text-lg sm:text-xl lg:text-2xl font-bold mt-6 max-w-lg mx-auto">
+            🕰️ Same day slots available
+          </p>
         </div>
       </section>
 
