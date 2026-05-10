@@ -12,10 +12,10 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
         <BrandLogo href="/" imageClassName="h-10 w-auto max-w-[180px]" priority />
 
-        <div className="hidden md:flex items-center gap-8 text-sm text-neutral-500">
+        <div className="hidden md:flex items-center gap-8 text-lg text-black">
           <a href="#features" className="hover:text-black transition-colors">What we do</a>
           <a href="/articles" className="hover:text-black transition-colors">Articles</a>
-          <a href="#faq" className="hover:text-black transition-colors">FAQ</a>
+          <a href="#pricing" className="hover:text-black transition-colors">Pricing</a>
         </div>
 
         <div className="hidden md:flex items-center gap-3">
@@ -23,20 +23,20 @@ export default function Navbar() {
             href={highLevelLoginUrl}
             target="_blank"
             rel="noreferrer"
-            className="text-sm text-neutral-500 hover:text-black transition-colors"
+            className="text-lg text-black hover:text-black transition-colors"
           >
             Log in
           </a>
           <a
             href="/start"
-            className="text-sm px-4 py-2 bg-black hover:bg-neutral-800 text-white font-medium transition-colors"
+            className="text-lg px-4 py-2 bg-black hover:bg-neutral-800 text-white font-medium transition-colors"
           >
             Book a Call
           </a>
         </div>
 
         <button
-          className="md:hidden text-neutral-500 hover:text-black"
+          className="md:hidden text-black hover:text-black"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -51,10 +51,10 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-black/8 bg-[#f5f4f0] px-4 py-4 flex flex-col gap-4 text-sm">
-          <a href="#features" className="text-neutral-500 hover:text-black" onClick={() => setOpen(false)}>What we do</a>
-          <a href="/articles" className="text-neutral-500 hover:text-black" onClick={() => setOpen(false)}>Articles</a>
-          <a href="#faq" className="text-neutral-500 hover:text-black" onClick={() => setOpen(false)}>FAQ</a>
+        <div className="md:hidden border-t border-black/8 bg-[#f5f4f0] px-4 py-4 flex flex-col gap-4 text-lg">
+          <a href="#features" className="text-black hover:text-black" onClick={() => setOpen(false)}>What we do</a>
+          <a href="/articles" className="text-black hover:text-black" onClick={() => setOpen(false)}>Articles</a>
+          <a href="#pricing" className="text-black hover:text-black" onClick={() => setOpen(false)}>Pricing</a>
           <a
             href={highLevelLoginUrl}
             target="_blank"

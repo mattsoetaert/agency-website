@@ -61,32 +61,32 @@ export default function BookingContent() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid gap-10 lg:grid-cols-[340px_minmax(0,1fr)] lg:items-start">
           <div className="bg-white border border-black/10 p-6 sm:p-8">
-            <p className="text-neutral-400 text-xs font-semibold uppercase tracking-[0.24em] mb-4">Step 2</p>
-            <h1 className="text-3xl sm:text-4xl font-bold text-black mb-4">Choose your time.</h1>
-            <p className="text-neutral-500 text-sm leading-relaxed mb-6">
+            <p className="text-black text-base font-bold uppercase tracking-[0.24em] mb-5">Step 2</p>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-black mb-5 leading-tight">Choose your time.</h1>
+            <p className="text-black text-lg font-semibold leading-relaxed mb-8">
               Your details are already carried over. Pick the slot that works best for you.
             </p>
 
-            <div className="space-y-4 text-sm">
+            <div className="space-y-5 text-base">
               <div>
-                <p className="text-neutral-400 mb-1">Name</p>
-                <p className="text-black">{lead.name || "Not provided"}</p>
+                <p className="text-black font-bold mb-1">Name</p>
+                <p className="text-black text-lg font-semibold">{lead.name || "Not provided"}</p>
               </div>
               <div>
-                <p className="text-neutral-400 mb-1">Email</p>
-                <p className="text-black">{lead.email || "Not provided"}</p>
+                <p className="text-black font-bold mb-1">Email</p>
+                <p className="text-black text-lg font-semibold">{lead.email || "Not provided"}</p>
               </div>
               <div>
-                <p className="text-neutral-400 mb-1">Phone</p>
-                <p className="text-black">{lead.phone || "Not provided"}</p>
+                <p className="text-black font-bold mb-1">Phone</p>
+                <p className="text-black text-lg font-semibold">{lead.phone || "Not provided"}</p>
               </div>
               <div>
-                <p className="text-neutral-400 mb-1">Owns a business</p>
-                <p className="text-black">{lead.ownsBusiness || "Not provided"}</p>
+                <p className="text-black font-bold mb-1">Owns a business</p>
+                <p className="text-black text-lg font-semibold">{lead.ownsBusiness || "Not provided"}</p>
               </div>
               <div>
-                <p className="text-neutral-400 mb-1">Monthly revenue</p>
-                <p className="text-black">{lead.monthlyRevenue || "Not provided"}</p>
+                <p className="text-black font-bold mb-1">Monthly revenue</p>
+                <p className="text-black text-lg font-semibold">{lead.monthlyRevenue || "Not provided"}</p>
               </div>
             </div>
           </div>

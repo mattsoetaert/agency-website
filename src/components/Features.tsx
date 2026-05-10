@@ -93,24 +93,24 @@ export default function Features() {
     <section id="features" className="bg-white py-24 border-t border-black/8">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="mb-12">
-          <p className="text-neutral-400 text-sm font-medium uppercase tracking-widest mb-4">What we do:</p>
+          <p className="text-black text-lg font-medium uppercase tracking-widest mb-4">What we do:</p>
         </div>
 
         <div className="grid gap-10 border border-black/10 bg-[#f5f4f0] p-6 sm:p-8 lg:grid-cols-[minmax(0,1fr)_440px] lg:items-center">
           <div>
-            <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-neutral-400">01</p>
+            <p className="mb-4 text-lg font-semibold uppercase tracking-widest text-black">01</p>
             <h2 className="mb-5 text-3xl font-bold leading-tight text-black sm:text-4xl">
               We build you a professional website, tailored to your business.
             </h2>
-            <p className="mb-8 max-w-2xl text-lg leading-relaxed text-neutral-500">
+            <p className="mb-8 max-w-2xl text-lg leading-relaxed text-black">
               A polished site gives customers a clear reason to trust you, call you, and choose you over the cheaper option. We build the full foundation so your business looks sharp and converts better from the first visit.
             </p>
 
             <div className="grid gap-px bg-black/8 sm:grid-cols-2">
               {features.map((feature) => (
                 <div key={feature.title} className="bg-white p-5">
-                  <h3 className="mb-2 text-sm font-semibold text-black">{feature.title}</h3>
-                  <p className="text-sm leading-relaxed text-neutral-500">{feature.description}</p>
+                  <h3 className="mb-2 text-lg font-semibold text-black">{feature.title}</h3>
+                  <p className="text-lg leading-relaxed text-black">{feature.description}</p>
                 </div>
               ))}
             </div>
@@ -160,7 +160,7 @@ export default function Features() {
             </div>
 
             <div className="absolute bottom-5 right-5 w-44 border border-black/10 bg-black p-4 text-white shadow-[0_18px_40px_rgba(0,0,0,0.18)]">
-              <p className="mb-1 text-xs text-white/60">Lead flow</p>
+              <p className="mb-1 text-base text-white/60">Lead flow</p>
               <p className="text-2xl font-bold">Ready</p>
             </div>
           </div>
@@ -168,19 +168,19 @@ export default function Features() {
 
         <div className="mt-10 grid gap-10 border border-black/10 bg-white p-6 sm:p-8 lg:grid-cols-[minmax(0,1fr)_440px] lg:items-center">
           <div>
-            <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-neutral-400">02</p>
+            <p className="mb-4 text-lg font-semibold uppercase tracking-widest text-black">02</p>
             <h2 className="mb-5 text-3xl font-bold leading-tight text-black sm:text-4xl">
               We build you a magic review funnel to make sure that all of your customers leave 5-star reviews.
             </h2>
-            <p className="mb-8 max-w-2xl text-lg leading-relaxed text-neutral-500">
+            <p className="mb-8 max-w-2xl text-lg leading-relaxed text-black">
               The review funnel helps you ask at the right time, send happy customers to the right place, and catch bad experiences before they hurt your reputation.
             </p>
 
             <div className="grid gap-px bg-black/8 sm:grid-cols-2">
               {reviewFunnelSteps.map((step) => (
                 <div key={step.title} className="bg-[#f5f4f0] p-5">
-                  <h3 className="mb-2 text-sm font-semibold text-black">{step.title}</h3>
-                  <p className="text-sm leading-relaxed text-neutral-500">{step.description}</p>
+                  <h3 className="mb-2 text-lg font-semibold text-black">{step.title}</h3>
+                  <p className="text-lg leading-relaxed text-black">{step.description}</p>
                 </div>
               ))}
             </div>
@@ -189,7 +189,7 @@ export default function Features() {
           <div className="relative min-h-[420px] overflow-hidden border border-black/10 bg-[#f5f4f0] p-5 shadow-[0_24px_80px_rgba(0,0,0,0.08)]">
             <div className="mx-auto flex max-w-72 flex-col gap-4">
               <div className="border border-black/10 bg-white p-5 shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
-                <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-neutral-400">Customer check-in</p>
+                <p className="mb-2 text-base font-semibold uppercase tracking-widest text-black">Customer check-in</p>
                 <p className="mb-4 text-lg font-bold text-black">How was your service?</p>
                 <div className="mb-4 flex gap-1">
                   {[0, 1, 2, 3, 4].map((star) => (
@@ -206,12 +206,12 @@ export default function Features() {
               </div>
 
               <div className="ml-auto w-60 border border-black/10 bg-black p-4 text-white shadow-[0_18px_40px_rgba(0,0,0,0.18)]">
-                <p className="mb-1 text-xs text-white/60">Happy customer</p>
+                <p className="mb-1 text-base text-white/60">Happy customer</p>
                 <p className="text-xl font-bold">Sent to Google</p>
               </div>
 
               <div className="w-60 border border-black/10 bg-white p-4">
-                <p className="mb-1 text-xs text-neutral-400">Needs attention</p>
+                <p className="mb-1 text-base text-black">Needs attention</p>
                 <p className="text-base font-semibold text-black">Private feedback captured</p>
               </div>
             </div>
@@ -220,7 +220,7 @@ export default function Features() {
               {["Ask", "Route", "Grow"].map((label, index) => (
                 <div key={label} className="bg-white p-3 text-center">
                   <div className="mx-auto mb-2 h-2 w-10 animate-[barGrow_3.5s_ease-in-out_infinite] bg-black" style={{ animationDelay: `${index * 0.3}s` }} />
-                  <p className="text-xs font-semibold text-neutral-500">{label}</p>
+                  <p className="text-base font-semibold text-black">{label}</p>
                 </div>
               ))}
             </div>
@@ -229,19 +229,19 @@ export default function Features() {
 
         <div className="mt-10 grid gap-10 border border-black/10 bg-[#f5f4f0] p-6 sm:p-8 lg:grid-cols-[minmax(0,1fr)_440px] lg:items-center">
           <div>
-            <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-neutral-400">03</p>
+            <p className="mb-4 text-lg font-semibold uppercase tracking-widest text-black">03</p>
             <h2 className="mb-5 text-3xl font-bold leading-tight text-black sm:text-4xl">
               We automate text-back and email follow-up when a lead calls your company and you don&apos;t pick up.
             </h2>
-            <p className="mb-8 max-w-2xl text-lg leading-relaxed text-neutral-500">
+            <p className="mb-8 max-w-2xl text-lg leading-relaxed text-black">
               This drops the likelihood of losing leads to competitors because someone else answered and you didn&apos;t. Your business follows up fast, even when you miss the call.
             </p>
 
             <div className="grid gap-px bg-black/8 sm:grid-cols-2">
               {missedCallSteps.map((step) => (
                 <div key={step.title} className="bg-white p-5">
-                  <h3 className="mb-2 text-sm font-semibold text-black">{step.title}</h3>
-                  <p className="text-sm leading-relaxed text-neutral-500">{step.description}</p>
+                  <h3 className="mb-2 text-lg font-semibold text-black">{step.title}</h3>
+                  <p className="text-lg leading-relaxed text-black">{step.description}</p>
                 </div>
               ))}
             </div>
@@ -255,7 +255,7 @@ export default function Features() {
                     <span className="animate-[ringPulse_2.4s_ease-in-out_infinite] text-xl font-bold">!</span>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-widest text-neutral-400">Missed call</p>
+                    <p className="text-base font-semibold uppercase tracking-widest text-black">Missed call</p>
                     <p className="text-lg font-bold text-black">New lead waiting</p>
                   </div>
                 </div>
@@ -263,21 +263,21 @@ export default function Features() {
               </div>
 
               <div className="ml-auto w-64 border border-black/10 bg-black p-4 text-white shadow-[0_18px_40px_rgba(0,0,0,0.18)]">
-                <p className="mb-2 text-xs text-white/60">Auto text-back</p>
-                <p className="text-sm leading-relaxed">
+                <p className="mb-2 text-base text-white/60">Auto text-back</p>
+                <p className="text-lg leading-relaxed">
                   Thanks for calling. We missed you, but can help. What service do you need?
                 </p>
               </div>
 
               <div className="w-64 border border-black/10 bg-[#f5f4f0] p-4">
-                <p className="mb-2 text-xs text-neutral-400">Email follow-up</p>
+                <p className="mb-2 text-base text-black">Email follow-up</p>
                 <div className="mb-2 h-3 w-40 bg-black" />
                 <div className="mb-2 h-2 w-full bg-neutral-300" />
                 <div className="h-2 w-4/5 bg-neutral-300" />
               </div>
 
               <div className="ml-auto w-64 border border-black/10 bg-white p-4">
-                <p className="mb-2 text-xs text-neutral-400">Next step</p>
+                <p className="mb-2 text-base text-black">Next step</p>
                 <div className="h-10 bg-black" />
               </div>
             </div>
@@ -286,26 +286,26 @@ export default function Features() {
               <div className="h-3 flex-1 bg-neutral-300">
                 <div className="h-full animate-[barGrow_3.5s_ease-in-out_infinite] bg-black" style={{ width: "78%" }} />
               </div>
-              <p className="text-xs font-semibold text-neutral-500">Follow-up sent</p>
+              <p className="text-base font-semibold text-black">Follow-up sent</p>
             </div>
           </div>
         </div>
 
         <div className="mt-10 grid gap-10 border border-black/10 bg-white p-6 sm:p-8 lg:grid-cols-[minmax(0,1fr)_440px] lg:items-center">
           <div>
-            <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-neutral-400">04</p>
+            <p className="mb-4 text-lg font-semibold uppercase tracking-widest text-black">04</p>
             <h2 className="mb-5 text-3xl font-bold leading-tight text-black sm:text-4xl">
               We give you complete management and control over your company with our easy to use, all-in-one software.
             </h2>
-            <p className="mb-8 max-w-2xl text-lg leading-relaxed text-neutral-500">
+            <p className="mb-8 max-w-2xl text-lg leading-relaxed text-black">
               Your leads, messages, appointments, follow-ups, and reporting live in one simple system so you can run the front end of your business without jumping between tools.
             </p>
 
             <div className="grid gap-px bg-black/8 sm:grid-cols-2">
               {softwareSteps.map((step) => (
                 <div key={step.title} className="bg-[#f5f4f0] p-5">
-                  <h3 className="mb-2 text-sm font-semibold text-black">{step.title}</h3>
-                  <p className="text-sm leading-relaxed text-neutral-500">{step.description}</p>
+                  <h3 className="mb-2 text-lg font-semibold text-black">{step.title}</h3>
+                  <p className="text-lg leading-relaxed text-black">{step.description}</p>
                 </div>
               ))}
             </div>
@@ -326,7 +326,7 @@ export default function Features() {
               <div className="p-5">
                 <div className="mb-5 flex items-center justify-between">
                   <div>
-                    <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-neutral-400">Company dashboard</p>
+                    <p className="mb-2 text-base font-semibold uppercase tracking-widest text-black">Company dashboard</p>
                     <div className="h-6 w-40 bg-black" />
                   </div>
                   <div className="h-9 w-24 bg-[#f5f4f0]" />
@@ -335,7 +335,7 @@ export default function Features() {
                 <div className="mb-5 grid grid-cols-3 gap-3">
                   {[12, 8, 5].map((value, index) => (
                     <div key={value} className="bg-[#f5f4f0] p-3">
-                      <p className="mb-2 text-xs text-neutral-400">{["New", "Booked", "Won"][index]}</p>
+                      <p className="mb-2 text-base text-black">{["New", "Booked", "Won"][index]}</p>
                       <p className="text-2xl font-bold text-black">{value}</p>
                     </div>
                   ))}
@@ -347,7 +347,7 @@ export default function Features() {
                       <div key={item} className="flex items-center gap-3 border border-black/8 bg-white p-3">
                         <div className="h-8 w-8 bg-black" />
                         <div className="flex-1">
-                          <p className="text-sm font-semibold text-black">{item}</p>
+                          <p className="text-lg font-semibold text-black">{item}</p>
                           <div className="mt-2 h-2 bg-neutral-200">
                             <div
                               className="h-full animate-[barGrow_3.5s_ease-in-out_infinite] bg-black"
@@ -363,7 +363,7 @@ export default function Features() {
             </div>
 
             <div className="absolute bottom-5 right-5 w-44 border border-black/10 bg-black p-4 text-white shadow-[0_18px_40px_rgba(0,0,0,0.18)]">
-              <p className="mb-1 text-xs text-white/60">Control center</p>
+              <p className="mb-1 text-base text-white/60">Control center</p>
               <p className="text-2xl font-bold">Live</p>
             </div>
           </div>

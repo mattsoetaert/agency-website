@@ -18,12 +18,12 @@ export default function OnboardingThanksPage() {
 
       <section className="px-4 sm:px-6 py-16 sm:py-24">
         <div className="max-w-2xl mx-auto bg-white border border-black/10 p-6 sm:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.08)]">
-          <p className="text-neutral-400 text-xs font-semibold uppercase tracking-[0.24em] mb-4">Received</p>
+          <p className="text-black text-base font-semibold uppercase tracking-[0.24em] mb-4">Received</p>
           <h1 className="text-3xl sm:text-4xl font-bold text-black mb-4">Your onboarding form was submitted.</h1>
-          <p className="text-neutral-500 text-base leading-relaxed mb-8">
+          <p className="text-black text-base leading-relaxed mb-8">
             We have the details needed to start mapping your website. If anything is missing, we will follow up by email.
           </p>
-          <Link href="/" className="inline-flex px-5 py-3 bg-black hover:bg-neutral-800 text-white font-semibold text-sm transition-colors">
+          <Link href="/" className="inline-flex px-5 py-3 bg-black hover:bg-neutral-800 text-white font-semibold text-lg transition-colors">
             Back to homepage
           </Link>
         </div>

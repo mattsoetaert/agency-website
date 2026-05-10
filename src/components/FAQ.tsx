@@ -40,7 +40,7 @@ export default function FAQ() {
     <section id="faq" className="bg-white py-24 border-t border-black/8">
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <div className="mb-16">
-          <p className="text-neutral-400 text-sm font-medium uppercase tracking-widest mb-4">FAQ</p>
+          <p className="text-black text-lg font-medium uppercase tracking-widest mb-4">FAQ</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-black">Common questions.</h2>
         </div>
 
@@ -51,9 +51,9 @@ export default function FAQ() {
                 className="w-full text-left py-5 flex items-center justify-between gap-4"
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
               >
-                <span className="text-black font-medium text-sm">{faq.q}</span>
+                <span className="text-black font-medium text-lg">{faq.q}</span>
                 <svg
-                  className={`w-4 h-4 text-neutral-400 shrink-0 transition-transform ${openIndex === i ? "rotate-180" : ""}`}
+                  className={`w-4 h-4 text-black shrink-0 transition-transform ${openIndex === i ? "rotate-180" : ""}`}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -61,7 +61,7 @@ export default function FAQ() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              {openIndex === i && <div className="pb-5 text-neutral-500 text-sm leading-relaxed">{faq.a}</div>}
+              {openIndex === i && <div className="pb-5 text-black text-lg leading-relaxed">{faq.a}</div>}
             </div>
           ))}
         </div>

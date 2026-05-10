@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import LeadConnectorWidget from "@/components/LeadConnectorWidget";
+import MetaPixel from "@/components/MetaPixel";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -32,6 +33,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         {children}
+        <MetaPixel />
         <LeadConnectorWidget />
         <Script
           src="https://api.getcornerstonemarketing.com/js/external-tracking.js"

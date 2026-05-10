@@ -26,7 +26,7 @@ function Slider({ label, value, min, max, step, display, onChange }: SliderProps
   return (
     <div className="mb-8 last:mb-0">
       <div className="flex justify-between items-baseline mb-3">
-        <span className="text-slate-300 font-medium text-sm">{label}</span>
+        <span className="text-black font-medium text-lg">{label}</span>
         <span className="text-white font-bold text-xl">{display}</span>
       </div>
       <div className="relative">
@@ -84,7 +84,7 @@ export default function Calculator() {
 
         {/* Header */}
         <div className="text-center mb-12">
-          <p className="text-indigo-400 text-sm font-semibold uppercase tracking-widest mb-3">
+          <p className="text-indigo-400 text-lg font-semibold uppercase tracking-widest mb-3">
             Revenue Leak Calculator
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
@@ -93,14 +93,14 @@ export default function Calculator() {
               costing you?
             </span>
           </h2>
-          <p className="text-slate-400 max-w-md mx-auto">
+          <p className="text-black max-w-md mx-auto">
             Move the sliders to see exactly how much revenue walks out the door every time a call goes unanswered.
           </p>
         </div>
 
         {/* Sliders card */}
         <div className="rounded-2xl border border-white/5 bg-white/2 p-6 sm:p-8 mb-5">
-          <p className="text-xs font-bold tracking-widest uppercase text-slate-600 mb-7">
+          <p className="text-base font-bold tracking-widest uppercase text-black mb-7">
             Your Numbers
           </p>
 
@@ -142,10 +142,10 @@ export default function Calculator() {
               <button
                 key={p}
                 onClick={() => setPeriod(p)}
-                className={`px-5 py-2 rounded-lg text-sm font-semibold transition-all capitalize ${
+                className={`px-5 py-2 rounded-lg text-lg font-semibold transition-all capitalize ${
                   period === p
                     ? "bg-indigo-500 text-white shadow"
-                    : "text-slate-500 hover:text-slate-300"
+                    : "text-black hover:text-black"
                 }`}
               >
                 {p}
@@ -159,7 +159,7 @@ export default function Calculator() {
               {fmt(heroVal)}
             </span>
           </div>
-          <p className="text-slate-500 text-sm mb-8">{periodLabels[period]}</p>
+          <p className="text-black text-lg mb-8">{periodLabels[period]}</p>
 
           {/* Breakdown grid */}
           <div className="grid grid-cols-3 gap-3 mb-8">
@@ -169,7 +169,7 @@ export default function Calculator() {
                   key={label}
                   className="rounded-xl border border-white/5 bg-white/3 p-4 text-center"
                 >
-                  <p className="text-xs font-bold tracking-widest uppercase text-slate-600 mb-2">
+                  <p className="text-base font-bold tracking-widest uppercase text-black mb-2">
                     {label}
                   </p>
                   <p className="text-lg font-bold text-red-400">{fmt(val)}</p>
@@ -179,23 +179,23 @@ export default function Calculator() {
           </div>
 
           {/* Formula */}
-          <div className="flex flex-wrap items-center gap-2 px-4 py-3 rounded-xl border border-white/5 bg-white/2 mb-6 text-sm">
-            <span className="text-slate-500">Missed calls</span>
+          <div className="flex flex-wrap items-center gap-2 px-4 py-3 rounded-xl border border-white/5 bg-white/2 mb-6 text-lg">
+            <span className="text-black">Missed calls</span>
             <span className="font-bold text-white">{calls}</span>
-            <span className="text-slate-600 text-base">×</span>
-            <span className="text-slate-500">Close rate</span>
+            <span className="text-black text-base">×</span>
+            <span className="text-black">Close rate</span>
             <span className="font-bold text-white">{closeRate}%</span>
-            <span className="text-slate-600 text-base">×</span>
-            <span className="text-slate-500">Deal value</span>
+            <span className="text-black text-base">×</span>
+            <span className="text-black">Deal value</span>
             <span className="font-bold text-white">{fmt(dealValue)}</span>
-            <span className="text-slate-600 text-base">=</span>
+            <span className="text-black text-base">=</span>
             <span className="font-bold text-red-400">{fmt(daily)}/day</span>
           </div>
 
           {/* ROI section */}
           <div className="rounded-xl border border-indigo-500/20 bg-indigo-500/5 p-5">
             <div className="flex justify-between items-center mb-3">
-              <span className="text-indigo-300 text-sm font-semibold">
+              <span className="text-indigo-300 text-lg font-semibold">
                 VoiceFlow AI — from ${PLAN_COST}/mo · ROI
               </span>
               <span className="text-indigo-300 font-bold text-lg">
@@ -208,7 +208,7 @@ export default function Calculator() {
                 style={{ width: `${roiBarPct}%` }}
               />
             </div>
-            <p className="text-xs text-slate-500">
+            <p className="text-base text-black">
               You lose{" "}
               <span className="text-indigo-300 font-semibold">{fmt(monthly)}/mo</span> from missed
               calls. Our service starts at{" "}
@@ -222,7 +222,7 @@ export default function Calculator() {
         <div className="text-center mt-8">
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-indigo-500 hover:bg-indigo-400 text-white font-semibold text-sm transition-all shadow-lg shadow-indigo-500/25 hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-indigo-500 hover:bg-indigo-400 text-white font-semibold text-lg transition-all shadow-lg shadow-indigo-500/25 hover:-translate-y-0.5"
           >
             Stop Losing Revenue — Book a Free Demo
           </a>

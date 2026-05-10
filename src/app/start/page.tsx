@@ -214,7 +214,7 @@ export default function StartPage() {
                 </div>
                 {/* Bottom label */}
                 <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-left">
-                  <p className="text-white font-semibold text-sm sm:text-base">
+                  <p className="text-white font-semibold text-lg sm:text-base">
                     ▶  Click to watch — 5 min
                   </p>
                 </div>
@@ -235,20 +235,20 @@ export default function StartPage() {
       {/* Primary CTA — book button */}
       <section className="px-4 sm:px-6 py-10">
         <div className="max-w-2xl mx-auto text-center">
-          <p className="text-black text-base sm:text-lg lg:text-xl font-bold uppercase tracking-[0.24em] mb-4">
+          <p className="text-black text-xl sm:text-2xl lg:text-3xl font-bold uppercase tracking-[0.24em] mb-6">
             Step 2
           </p>
-          <h2 className="text-2xl sm:text-3xl font-bold text-black mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-8">
             Schedule a call and get your questions answered
           </h2>
           <a
             href={bookHref}
             onClick={handleBookClick}
-            className="inline-block px-8 py-4 bg-black hover:bg-neutral-800 text-white font-semibold text-sm tracking-wide transition-colors cursor-pointer"
+            className="inline-block px-12 py-6 bg-black hover:bg-neutral-800 text-white font-semibold text-lg sm:text-xl tracking-wide transition-colors cursor-pointer"
           >
             Book a Free Strategy Call
           </a>
-          <p className="text-black text-lg sm:text-xl lg:text-2xl font-bold mt-6 max-w-lg mx-auto">
+          <p className="text-black text-xl sm:text-2xl lg:text-3xl font-bold mt-8 max-w-lg mx-auto">
             🕰️ Same day slots available
           </p>
         </div>
@@ -266,7 +266,7 @@ export default function StartPage() {
             {!submitting && (
               <button
                 onClick={() => setModalOpen(false)}
-                className="absolute top-4 right-4 text-neutral-400 hover:text-black transition-colors"
+                className="absolute top-4 right-4 text-black hover:text-black transition-colors"
                 aria-label="Close"
               >
                 <svg
@@ -285,7 +285,7 @@ export default function StartPage() {
               </button>
             )}
 
-            <p className="text-black text-sm font-bold uppercase tracking-[0.24em] mb-3">
+            <p className="text-black text-lg font-bold uppercase tracking-[0.24em] mb-3">
               Quick info
             </p>
             <h2 className="text-2xl font-bold text-black mb-2">
@@ -300,7 +300,7 @@ export default function StartPage() {
             </p>
 
             {error && (
-              <div className="mb-4 border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+              <div className="mb-4 border border-red-200 bg-red-50 px-4 py-3 text-lg text-red-700">
                 {error}
               </div>
             )}
@@ -389,7 +389,7 @@ export default function StartPage() {
               <button
                 type="submit"
                 disabled={submitting}
-                className="w-full px-6 py-4 bg-black hover:bg-neutral-800 disabled:opacity-50 text-white font-semibold text-sm transition-colors mt-6"
+                className="w-full px-6 py-4 bg-black hover:bg-neutral-800 disabled:opacity-50 text-white font-semibold text-lg transition-colors mt-6"
               >
                 {submitting
                   ? "Loading…"

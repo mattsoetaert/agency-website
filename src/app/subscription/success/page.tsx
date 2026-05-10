@@ -44,35 +44,35 @@ export default async function SubscriptionSuccessPage({ searchParams }: SuccessP
 
       <section className="px-4 sm:px-6 py-16 sm:py-24">
         <div className="max-w-2xl mx-auto bg-white border border-black/10 p-6 sm:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.08)]">
-          <p className="text-neutral-400 text-xs font-semibold uppercase tracking-[0.24em] mb-4">Subscription Confirmed</p>
+          <p className="text-black text-base font-semibold uppercase tracking-[0.24em] mb-4">Subscription Confirmed</p>
           <h1 className="text-3xl sm:text-4xl font-bold text-black mb-4">Your website plan is active.</h1>
-          <p className="text-neutral-500 text-base leading-relaxed mb-8">
+          <p className="text-black text-base leading-relaxed mb-8">
             Your first payment has been received. We will use the project details from your call to start onboarding and confirm the next steps by email.
           </p>
 
-          <div className="border-y border-black/10 py-5 mb-8 space-y-3 text-sm">
+          <div className="border-y border-black/10 py-5 mb-8 space-y-3 text-lg">
             <div className="flex items-center justify-between gap-4">
-              <span className="text-neutral-500">Client</span>
+              <span className="text-black">Client</span>
               <span className="text-black text-right">{session?.name ?? "Confirmed"}</span>
             </div>
             <div className="flex items-center justify-between gap-4">
-              <span className="text-neutral-500">Email</span>
+              <span className="text-black">Email</span>
               <span className="text-black text-right">{session?.email ?? "On file"}</span>
             </div>
             <div className="flex items-center justify-between gap-4">
-              <span className="text-neutral-500">Status</span>
+              <span className="text-black">Status</span>
               <span className="text-black text-right">Paid and recurring</span>
             </div>
           </div>
 
-          <div className="space-y-4 text-sm text-neutral-500 leading-relaxed">
+          <div className="space-y-4 text-lg text-black leading-relaxed">
             <p>Next, we will confirm access needs, content inputs, launch timeline, and the first version of your site structure.</p>
             <p>You will receive Stripe receipts separately for the subscription payment and future renewals.</p>
           </div>
 
           <Link
             href="/onboarding"
-            className="mt-8 inline-flex px-5 py-3 bg-black hover:bg-neutral-800 text-white font-semibold text-sm transition-colors"
+            className="mt-8 inline-flex px-5 py-3 bg-black hover:bg-neutral-800 text-white font-semibold text-lg transition-colors"
           >
             Complete onboarding form
           </Link>

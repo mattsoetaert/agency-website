@@ -13,8 +13,8 @@ type OnboardingPageProps = {
 };
 
 const inputClass =
-  "w-full px-4 py-3 bg-[#f5f4f0] border border-black/10 text-black placeholder-neutral-400 text-sm focus:outline-none focus:ring-1 focus:ring-black";
-const labelClass = "block text-xs font-semibold text-neutral-500 mb-2";
+  "w-full px-4 py-3 bg-[#f5f4f0] border border-black/10 text-black placeholder-neutral-400 text-lg focus:outline-none focus:ring-1 focus:ring-black";
+const labelClass = "block text-base font-semibold text-black mb-2";
 const sectionClass = "bg-white border border-black/10 p-6 sm:p-8";
 
 function errorMessage(error?: string) {
@@ -71,7 +71,7 @@ function CheckboxGroup({ name, options }: { name: string; options: string[] }) {
   return (
     <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
       {options.map((option) => (
-        <label key={option} className="flex items-start gap-3 text-sm font-medium text-neutral-700">
+        <label key={option} className="flex items-start gap-3 text-lg font-medium text-black">
           <input name={name} value={option} type="checkbox" className="mt-1 h-4 w-4 accent-black" />
           <span>{option}</span>
         </label>
@@ -91,7 +91,7 @@ function Section({
 }) {
   return (
     <section className={sectionClass}>
-      <p className="text-neutral-400 text-xs font-semibold uppercase tracking-[0.24em] mb-3">{eyebrow}</p>
+      <p className="text-black text-base font-semibold uppercase tracking-[0.24em] mb-3">{eyebrow}</p>
       <h2 className="text-2xl sm:text-3xl font-bold text-black mb-6">{title}</h2>
       {children}
     </section>
@@ -112,14 +112,14 @@ export default async function OnboardingPage({ searchParams }: OnboardingPagePro
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
         <div className="max-w-3xl mb-10">
-          <p className="text-neutral-400 text-xs font-semibold uppercase tracking-[0.24em] mb-4">Website Kickoff</p>
+          <p className="text-black text-base font-semibold uppercase tracking-[0.24em] mb-4">Website Kickoff</p>
           <h1 className="text-4xl sm:text-5xl font-bold text-black leading-tight mb-5">Website onboarding form.</h1>
-          <p className="text-neutral-500 text-base sm:text-lg leading-relaxed">
+          <p className="text-black text-base sm:text-lg leading-relaxed">
             Fill this out after signup so we can write your website, structure your service pages, set up your contact flow, and launch with accurate business details.
           </p>
         </div>
 
-        {error && <div className="mb-6 border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">{error}</div>}
+        {error && <div className="mb-6 border border-red-200 bg-red-50 px-4 py-3 text-lg text-red-700">{error}</div>}
 
         <form action="/api/onboarding" method="post" className="space-y-6">
           <Section eyebrow="1" title="Business information">
@@ -302,7 +302,7 @@ export default async function OnboardingPage({ searchParams }: OnboardingPagePro
 
           <button
             type="submit"
-            className="w-full px-6 py-4 bg-black hover:bg-neutral-800 text-white font-semibold text-sm transition-colors"
+            className="w-full px-6 py-4 bg-black hover:bg-neutral-800 text-white font-semibold text-lg transition-colors"
           >
             Submit Website Onboarding Form
           </button>

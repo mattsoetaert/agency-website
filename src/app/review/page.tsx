@@ -94,25 +94,25 @@ export default function ReviewPage() {
         <div className="max-w-2xl mx-auto bg-white border border-black/10 p-6 sm:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.08)]">
           {state === "thanks" ? (
             <>
-              <p className="text-neutral-400 text-xs font-semibold uppercase tracking-[0.24em] mb-4">
+              <p className="text-black text-base font-semibold uppercase tracking-[0.24em] mb-4">
                 Thank you
               </p>
               <h1 className="text-3xl sm:text-4xl font-bold text-black mb-4">
                 Your feedback was received.
               </h1>
-              <p className="text-neutral-500 text-base leading-relaxed">
+              <p className="text-black text-base leading-relaxed">
                 We appreciate you taking the time to share this with us. We&apos;ll look into it.
               </p>
             </>
           ) : (
             <>
-              <p className="text-neutral-400 text-xs font-semibold uppercase tracking-[0.24em] mb-4">
+              <p className="text-black text-base font-semibold uppercase tracking-[0.24em] mb-4">
                 Review
               </p>
               <h1 className="text-3xl sm:text-4xl font-bold text-black mb-2">
                 How was your experience?
               </h1>
-              <p className="text-neutral-500 text-base leading-relaxed mb-8">
+              <p className="text-black text-base leading-relaxed mb-8">
                 Select a rating below.
               </p>
 
@@ -137,7 +137,7 @@ export default function ReviewPage() {
                   className="space-y-4 border-t border-black/8 pt-8"
                 >
                   <label className="block">
-                    <span className="block text-xs font-medium text-neutral-500 mb-2">
+                    <span className="block text-base font-medium text-black mb-2">
                       Full Name
                     </span>
                     <input
@@ -145,11 +145,11 @@ export default function ReviewPage() {
                       type="text"
                       placeholder="Jane Smith"
                       required
-                      className="w-full px-4 py-3 bg-[#f5f4f0] border border-black/10 text-black placeholder-neutral-400 text-sm focus:outline-none focus:ring-1 focus:ring-black"
+                      className="w-full px-4 py-3 bg-[#f5f4f0] border border-black/10 text-black placeholder-neutral-400 text-lg focus:outline-none focus:ring-1 focus:ring-black"
                     />
                   </label>
                   <label className="block">
-                    <span className="block text-xs font-medium text-neutral-500 mb-2">
+                    <span className="block text-base font-medium text-black mb-2">
                       What happened?
                     </span>
                     <textarea
@@ -157,13 +157,13 @@ export default function ReviewPage() {
                       rows={4}
                       placeholder="Tell us more…"
                       required
-                      className="w-full px-4 py-3 bg-[#f5f4f0] border border-black/10 text-black placeholder-neutral-400 text-sm focus:outline-none focus:ring-1 focus:ring-black resize-none"
+                      className="w-full px-4 py-3 bg-[#f5f4f0] border border-black/10 text-black placeholder-neutral-400 text-lg focus:outline-none focus:ring-1 focus:ring-black resize-none"
                     />
                   </label>
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full px-6 py-4 bg-black hover:bg-neutral-800 disabled:opacity-50 text-white font-semibold text-sm transition-colors"
+                    className="w-full px-6 py-4 bg-black hover:bg-neutral-800 disabled:opacity-50 text-white font-semibold text-lg transition-colors"
                   >
                     {submitting ? "Sending…" : "Send Feedback"}
                   </button>

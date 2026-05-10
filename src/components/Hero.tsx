@@ -5,11 +5,11 @@ export default function Hero() {
         <div className="grid gap-14 lg:grid-cols-[minmax(0,1fr)_420px] lg:items-center">
           <div className="max-w-2xl">
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-black leading-[1.05] tracking-tight mb-6">
-              Supercharge your online presence and turn visitors into customers.
+              Build your online presence, turn local visitors into customers.
             </h1>
 
-            <p className="text-neutral-500 text-xl leading-relaxed mb-10 max-w-xl">
-              We build conversion focused websites for service companies that want more calls, want to bid higher, and want a stronger first impression.
+            <p className="text-black text-xl leading-relaxed mb-10 max-w-xl">
+              We give local service businesses all the systems they need to grow.
             </p>
             <div className="flex flex-wrap gap-12">
               {[
@@ -20,7 +20,7 @@ export default function Hero() {
               ].map((stat) => (
                 <div key={stat.label}>
                   <div className="text-3xl font-bold text-black">{stat.value}</div>
-                  <div className="text-sm text-neutral-500 mt-1">{stat.label}</div>
+                  <div className="text-lg text-black mt-1">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -30,13 +30,13 @@ export default function Hero() {
             href="/start"
             className="group block bg-white border border-black/10 shadow-[0_24px_80px_rgba(0,0,0,0.08)] p-8 sm:p-10 hover:shadow-[0_28px_90px_rgba(0,0,0,0.12)] transition-shadow"
           >
-            <p className="text-neutral-400 text-xs font-semibold uppercase tracking-[0.24em] mb-4">
+            <p className="text-black text-base font-semibold uppercase tracking-[0.24em] mb-4">
               Watch first
             </p>
             <h2 className="text-2xl sm:text-3xl font-bold text-black mb-3 leading-tight">
               See exactly what we do for your business.
             </h2>
-            <p className="text-neutral-500 text-sm leading-relaxed mb-8">
+            <p className="text-black text-lg leading-relaxed mb-8">
               A 5-minute walkthrough of how we turn websites into customers.
             </p>
 
@@ -61,7 +61,7 @@ export default function Hero() {
               </div>
             </div>
 
-            <span className="inline-flex w-full items-center justify-center px-6 py-4 bg-black group-hover:bg-neutral-800 text-white font-semibold text-sm transition-colors">
+            <span className="inline-flex w-full items-center justify-center px-6 py-4 bg-black group-hover:bg-neutral-800 text-white font-semibold text-lg transition-colors">
               Check Out a Video of What We Do →
             </span>
           </a>
